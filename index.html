@@ -25,6 +25,15 @@
 
     <!-- Feuille de style du modèle -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        @media (max-width: 576px) {
+            #responsive-image {
+                height: 100vh;
+                width: 100vw;
+            }
+        }
+    </style>
+
 </head>
 <body>
 
@@ -124,7 +133,7 @@
             <div class="col-xl-6">
                 <div class="row g-4">
                     <div class="col-6">
-                        <img src="img/about-1.jpg" class="img-fluid h-100 wow zoomIn" data-wow-delay="0.1s" alt="">
+                        <img id="responsive-image" src="img/about-1.jpg" class="img-fluid h-100 wow zoomIn" data-wow-delay="0.1s" alt="">
                     </div>
                     <div class="col-6">
                         <img src="img/about-2.jpg" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="">
