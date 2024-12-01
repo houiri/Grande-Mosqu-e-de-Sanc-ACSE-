@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>ACSE - Modèle de site Web de mosquée</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Polices Web Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Feuille de style des icônes -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Feuilles de style des bibliothèques -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Feuille de style Bootstrap personnalisée -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Feuille de style du modèle -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Début du Spinner -->
+<div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-success" role="status"></div>
+</div>
+<!-- Fin du Spinner -->
+
+
+<!-- Début de la barre supérieure -->
+<div class="container-fluid fixed-top">
+
+    <div class="container" style="background: white">
+        <nav class="navbar navbar-light navbar-expand-lg py-3">
+            <a href="index.html" class="navbar-brand">
+                <h1 class="mb-0"><span class="text-success">MOSQUEE ESSALEM</span> </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-success"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                <div class="navbar-nav ms-lg-auto mx-xl-auto">
+                    <a href="index.html" class="nav-item nav-link active">Accueil</a>
+                    <a href="about.html" class="nav-item nav-link">À propos</a>
+                    <a href="activity.html" class="nav-item nav-link">Activités</a>
+                    <a href="event.html" class="nav-item nav-link">Événements</a>
+                    <a href="sermon.html" class="nav-item nav-link">Sermons</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Infos</a>
+                        <div class="dropdown-menu m-0 rounded-0">
+                            <a href="hadith.html" class="dropdown-item">Hadiths</a>
+                            <a href="quiz.html" class="dropdown-item">Quiz Islamique</a>
+                            <a href="learning.html" class="dropdown-item">Ressources Éducatives</a>
+                            <a href="faq.html" class="dropdown-item">FAQ</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="./donate.html" class="btn btn-success py-2 px-4 d-none d-xl-inline-block">  <i class="fa fa-hand-holding-heart me-2"></i>Faire un don</a>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Fin de la barre supérieure -->
+
+
+<!-- Début du héros -->
+<div class="container-fluid hero-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7" style="background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="hero-header-inner animated zoomIn p-4">
+                    <p class="fs-4 text-success fw-bold">BIENVENUE À LA MOSQUÉE</p>
+                    <h1 class="display-3 mb-4 text-dark fw-bold">MOSQUÉE ESSALEM</h1>
+                    <p class="text-secondary fs-5 mb-4">
+                        Découvrez un espace dédié à la foi, à l'unité et à la sérénité. Soutenez notre mission spirituelle et communautaire.
+                    </p>
+                    <a href="./donate.html" class="btn btn-success py-3 px-5 text-uppercase">
+                        <i class="fa fa-hand-holding-heart me-2"></i> Faire un don
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin du héros -->
+<!-- Début des horaires de prière -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <p class="fs-5 text-uppercase text-success">Horaires de prière</p>
+            <h1 class="display-3">Horaires des prières quotidiennes</h1>
+            <br>
+            <p class="fs-5">Mosquée ACSE Mâcon-Sancé, 71000 France</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10" style="border: none; border-radius: 8px; overflow: hidden;">
+                <!-- Iframe pour Mawaqit -->
+                <iframe
+                        src="https://mawaqit.net/fr/m/acse-macon-sance-71000-france"
+                        width="100%"
+                        height="600"
+                        frameborder="0"
+                        style="border: none; border-radius: 8px; ">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin des horaires de prière -->
+
+<!-- Début À propos -->
+<div class="container-fluid about py-5">
+    <div class="container py-5">
+        <div class="row g-5 mb-5">
+            <div class="col-xl-6">
+                <div class="row g-4">
+                    <div class="col-6">
+                        <img src="img/about-1.jpg" class="img-fluid h-100 wow zoomIn" data-wow-delay="0.1s" alt="">
+                    </div>
+                    <div class="col-6">
+                        <img src="img/about-2.jpg" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="">
+                        <img src="img/about-3.jpg" class="img-fluid pt-3 wow zoomIn" data-wow-delay="0.1s" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 wow fadeIn" data-wow-delay="0.5s">
+                <p class="fs-5 text-uppercase text-success">À propos de la Mosquée</p>
+                <h1 class="display-5 pb-4 m-0">Un lieu de culte et de rassemblement communautaire</h1>
+                <p class="pb-4">
+                    La mosquée de l'ACSE à Sancé est bien plus qu'un simple lieu de prière. Elle représente un espace spirituel, éducatif et communautaire, où les croyants peuvent se rassembler pour adorer Allah, renforcer leur foi, et participer à des activités qui favorisent l'unité et le soutien mutuel.
+
+                    Construite grâce à l'engagement des fidèles, cette mosquée incarne les valeurs fondamentales de solidarité et de fraternité. Elle est ouverte à tous, qu'ils soient musulmans ou non, et accueille toute personne cherchant la sérénité, l'apprentissage, et un lien plus profond avec Allah. Inspirés par la sagesse « Allah aide ceux qui s'aident eux-mêmes », nous œuvrons ensemble pour améliorer notre communauté, tout en servant notre Créateur.
+
+                    Nous offrons des prières quotidiennes, des sermons inspirants, des cours éducatifs, et des initiatives de soutien pour répondre aux besoins spirituels et matériels de nos membres. Chaque visiteur trouve ici un environnement empreint de paix, d'amour et de respect.
+
+                    Rejoignez-nous pour construire un avenir où la foi, la solidarité et la connaissance brillent comme un phare pour tous.
+                </p>
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <div class="ps-3 d-flex align-items-center justify-content-start">
+                            <span class="bg-primary btn-md-square rounded-circle mt-4 me-2"><i class="fa fa-eye text-dark fa-4x mb-5 pb-2"></i></span>                            <div class="ms-4">
+                                <h5>Notre Vision</h5>
+                                <p>Créer un espace de foi, de savoir et de solidarité, où chaque individu trouve paix, unité et inspiration pour grandir spirituellement et contribuer au bien commun.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ps-3 d-flex align-items-center justify-content-start">
+                            <span class="bg-primary btn-md-square rounded-circle mt-4 me-2"><i class="fa fa-flag text-dark fa-4x mb-5 pb-2"></i></span>
+                            <div class="ms-4">
+                                <h5>Notre Mission</h5>
+                                <p>Servir la communauté en offrant un lieu de prière, d’apprentissage et de solidarité, tout en promouvant les valeurs d’amour, de paix et de fraternité, éclairées par les enseignements d’Allah.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-light p-3 mb-4">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-3">
+                            <img src="img/about-child.jpg" class="img-fluid rounded-circle" alt="">
+                        </div>
+                        <div class="col-6">
+                            <p class="mb-0">Soutenir notre mosquée, c’est contribuer à un espace de foi, d’éducation et de solidarité. Vos dons permettent d’organiser des activités, d’entretenir les lieux et d’aider les plus démunis. Ensemble, construisons une communauté unie et bienveillante.</p>
+                        </div>
+                        <div class="col-3">
+                            <h2 class="mb-0 text-success text-center">Dons</h2>
+                            <h5 class="mb-0 text-center">Collectés</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-6">
+                        <p class="mb-2"><i class="fa fa-check text-success me-3"></i>Charité & Dons</p>
+                        <p class="mb-0"><i class="fa fa-check text-success me-3"></i>Éducation parentale</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-2"><i class="fa fa-check text-success me-3"></i>Hadith & Sunna</p>
+                        <p class="mb-0"><i class="fa fa-check text-success me-3"></i>Développement de la mosquée</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section avec le bouton -->
+        <div class="container text-center bg-primary py-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-2">
+                    <i class="fa fa-mosque fa-5x text-white"></i>
+                </div>
+                <div class="col-lg-7 text-center text-lg-start">
+                    <h1 class="mb-0">Chaque musulman doit réaliser l'importance du "Pilier" de l'Islam</h1>
+                </div>
+                <div class="col-lg-3">
+                    <button class="btn btn-light py-2 px-4" data-bs-toggle="modal" data-bs-target="#pillarsModal">En savoir plus</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal (Popup) -->
+        <div class="modal fade" id="pillarsModal" tabindex="-1" aria-labelledby="pillarsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content shadow-lg">
+                    <div class="modal-header bg-gradient-primary text-white">
+                        <h5 class="modal-title d-flex align-items-center" id="pillarsModalLabel">
+                            <i class="fa fa-star text-warning me-2"></i> Les 5 Piliers de l'Islam
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-4">
+                            <!-- Pilier 1 : Chahada -->
+                            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="card shadow-sm border-light h-100" style="transition: transform 0.3s ease;">
+                                    <img src="https://i0.wp.com/www.islammessage.com/wp-content/uploads/2023/10/Chahada.png?fit=1640%2C924&ssl=1" class="card-img-top" alt="Chahada" style="height: 200px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">1. Chahada (Profession de foi)</h5>
+                                        <p class="card-text">La Chahada est la déclaration centrale de la foi musulmane : "Il n'y a de Dieu qu'Allah, et Muhammad est son prophète". Cette profession est l'élément fondamental de l'Islam, et elle est prononcée lors de la conversion.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pilier 2 : Salat -->
+                            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="card shadow-sm border-light h-100" style="transition: transform 0.3s ease;">
+                                    <img src="https://img.freepik.com/vecteurs-libre/illustration-salat-design-plat-dessine-main_23-2149272402.jpg?semt=ais_hybrid" class="card-img-top" alt="Salat" style="height: 200px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">2. Salat (Prière)</h5>
+                                        <p class="card-text">La prière est un acte de dévotion envers Allah, effectué cinq fois par jour. Ces prières sont effectuées à des moments spécifiques, renforçant la connexion spirituelle et la discipline du croyant.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pilier 3 : Zakat -->
+                            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="card shadow-sm border-light h-100" style="transition: transform 0.3s ease;">
+                                    <img src="https://static.vecteezy.com/ti/vecteur-libre/p1/15835097-les-musulmans-donnent-l-aumone-la-zakat-ou-l-infaq-a-une-personne-qui-en-a-besoin-dans-une-affiche-de-dessin-anime-plat-illustration-de-modeles-dessines-a-la-main-vectoriel.jpg" class="card-img-top" alt="Zakat" style="height: 200px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">3. Zakat (Aumône)</h5>
+                                        <p class="card-text">La Zakat est l'aumône obligatoire pour les musulmans, destinée à purifier la richesse. Elle consiste à donner une portion de ses biens aux pauvres et aux nécessiteux pour soutenir la communauté.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pilier 4 : Sawm -->
+                            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                                <div class="card shadow-sm border-light h-100" style="transition: transform 0.3s ease;">
+                                    <img src="https://cdn.pixabay.com/photo/2022/03/18/19/42/islam-7077341_960_720.png" class="card-img-top" alt="Sawm" style="height: 200px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">4. Sawm (Jeûne)</h5>
+                                        <p class="card-text">Le jeûne durant le mois de Ramadan est un acte de purification spirituelle. Les musulmans s'abstiennent de manger, de boire et d'autres désirs pendant la journée, renforçant ainsi leur maîtrise de soi et leur proximité avec Allah.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pilier 5 : Hajj -->
+                            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.9s">
+                                <div class="card shadow-sm border-light h-100" style="transition: transform 0.3s ease;">
+                                    <img src="https://img.freepik.com/vecteurs-premium/famille-musulmane-effectuant-pelerinage-du-hajj-omra-kaaba-mecque-illustration-arriere-plan_138260-1222.jpg" class="card-img-top" alt="Hajj" style="height: 200px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">5. Hajj (Pèlerinage)</h5>
+                                        <p class="card-text">Le Hajj est un pèlerinage spirituel à La Mecque, obligatoire pour tout musulman capable de le réaliser. C'est l'un des plus grands rassemblements religieux du monde, marquant un acte de dévotion et d'unité parmi les musulmans du monde entier.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                            <i class="fa fa-times me-1"></i> Fermer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- Fin À propos -->
+
+
+    <!-- Début des activités -->
+    <!-- Début des activités -->
+    <div class="container-fluid activities py-5" >
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+                <p class="fs-5 text-uppercase text-success">Nos Activités</p>
+                <h1 class="display-3">Nos Activités et Projets</h1>
+            </div>
+            <div class="row g-4">
+                <!-- Pilier 1 : Développement de la mosquée -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="activities-item p-4 shadow-lg border-light rounded h-100" style="background-color: white;">
+                        <i class="fa fa-mosque fa-4x text-success"></i>
+                        <div class="ms-4">
+                            <h4>Développement de la Mosquée</h4>
+                            <p class="mb-4">Contribuez à l’évolution de notre mosquée en participant à des projets qui renforcent son rôle au sein de la communauté. Chaque geste soutient un espace de foi, de savoir et de partage. Ensemble, bâtissons l’avenir.</p>
+                            <button type="button" class="btn btn-success px-4 py-2 text-white" data-bs-toggle="modal" data-bs-target="#devMosqueeModal">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pilier 2 : Charité & Dons -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="activities-item p-4 shadow-lg border-light rounded h-100" style="background-color: white;">
+                        <i class="fa fa-donate fa-4x text-success"></i>
+                        <div class="ms-4">
+                            <h4>Charité & Dons</h4>
+                            <p class="mb-4">La charité est un pilier fondamental de notre foi. En contribuant, vous soutenez les plus démunis et financez des projets communautaires. Chaque don, petit ou grand, est une bénédiction qui fait la différence.</p>
+                            <button type="button" class="btn btn-success px-4 py-2 text-white" data-bs-toggle="modal" data-bs-target="#chariteModal">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pilier 3 : Apprentissage du Coran -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="activities-item p-4 shadow-lg border-light rounded h-100" style="background-color: white;">
+                        <i class="fa fa-quran fa-4x text-success"></i>
+                        <div class="ms-4">
+                            <h4>Apprentissage du Coran</h4>
+                            <p class="mb-4">Découvrez la beauté et la sagesse du Coran à travers des cours adaptés à tous les âges et niveaux. Notre mosquée propose un enseignement qui inspire et guide dans la lumière des paroles d’Allah.</p>
+                            <button type="button" class="btn btn-success px-4 py-2 text-white" data-bs-toggle="modal" data-bs-target="#coranModal">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pilier 4 : Hadith & Sunna -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="activities-item p-4 shadow-lg border-light rounded h-100" style="background-color: white;">
+                        <i class="fa fa-book fa-4x text-success"></i>
+                        <div class="ms-4">
+                            <h4>Hadith & Sunna</h4>
+                            <p class="mb-4">Approfondissez votre foi en étudiant les hadiths authentiques et la Sunna du Prophète Muhammad (ﷺ). Ces enseignements précieux éclairent notre quotidien et nous guident vers une vie alignée sur les valeurs de l’islam : paix, justice et bienveillance.</p>
+                            <button type="button" class="btn btn-success px-4 py-2 text-white" data-bs-toggle="modal" data-bs-target="#hadithModal">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pilier 5 : Éducation Parentale -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="activities-item p-4 shadow-lg border-light rounded h-100" style="background-color: white;">
+                        <i class="fa fa-book-open fa-4x text-success"></i>
+                        <div class="ms-4">
+                            <h4>Éducation Parentale</h4>
+                            <p class="mb-4">Renforcez votre rôle de parent grâce à des conseils inspirés des enseignements islamiques. Nos programmes d’éducation parentale offrent des outils pratiques et spirituels pour élever des enfants dans la foi, la bienveillance et le respect des valeurs familiales.</p>
+                            <button type="button" class="btn btn-success px-4 py-2 text-white" data-bs-toggle="modal" data-bs-target="#educationModal">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pilier 6 : Aider les Orphelins -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="1.1s">
+                    <div class="activities-item p-4 shadow-lg border-light rounded h-100" style="background-color: white;">
+                        <i class="fa fa-hands fa-4x text-success"></i>
+                        <div class="ms-4">
+                            <h4>Aider les Orphelins</h4>
+                            <p class="mb-4">Soutenir les orphelins est un acte de charité honoré dans l'islam. En contribuant à leur bien-être, nous leur offrons un avenir meilleur, rempli d’amour et de soutien. Votre aide permet de fournir des ressources essentielles aux plus vulnérables.</p>
+                            <button type="button" class="btn btn-success px-4 py-2 text-white" data-bs-toggle="modal" data-bs-target="#orphelinsModal">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Développement de la Mosquée -->
+    <div class="modal fade" id="devMosqueeModal" tabindex="-1" aria-labelledby="devMosqueeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-white">
+                    <h5 class="modal-title" id="devMosqueeModalLabel">Développement de la Mosquée</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.pexels.com/photos/1310102/pexels-photo-1310102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Développement de la Mosquée" class="img-fluid rounded mb-4">
+                    <h5><i class="fa fa-cogs text-success"></i> Comment participer ?</h5>
+                    <p>Pour contribuer au développement de la mosquée, vous pouvez participer à des projets de rénovation ou financer l'achat de nouveaux équipements. Votre soutien est essentiel pour créer un espace encore plus accueillant et fonctionnel pour la prière, l'éducation et la vie communautaire.</p>
+                    <h5><i class="fa fa-credit-card text-success"></i> Comment faire un don ?</h5>
+                    <p>Nous avons plusieurs options pour vous permettre de faire un don : en ligne, par virement bancaire, ou directement lors de nos événements. Chaque contribution, quelle qu'en soit la taille, est précieuse.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Charité & Dons -->
+    <div class="modal fade" id="chariteModal" tabindex="-1" aria-labelledby="chariteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-white">
+                    <h5 class="modal-title" id="chariteModalLabel">Charité & Dons</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.pexels.com/photos/6994806/pexels-photo-6994806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Charité & Dons" class="img-fluid rounded mb-4">
+                    <h5><i class="fa fa-hand-holding-heart text-success"></i> Pourquoi la charité ?</h5>
+                    <p>La charité est un pilier fondamental de l’Islam. Chaque donation permet d’aider les plus démunis, de financer des projets éducatifs et de soutenir des initiatives pour renforcer les liens communautaires. C’est une manière de purifier notre richesse et de faire grandir la communauté.</p>
+                    <h5><i class="fa fa-credit-card text-success"></i> Faire un don</h5>
+                    <p>Les dons peuvent être effectués en ligne via notre site ou lors des événements de collecte organisés par la mosquée. Chaque don, aussi modeste soit-il, contribue à faire une différence dans la vie de nombreuses personnes.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Apprentissage du Coran -->
+    <div class="modal fade" id="coranModal" tabindex="-1" aria-labelledby="coranModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-white">
+                    <h5 class="modal-title" id="coranModalLabel">Apprentissage du Coran</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.pexels.com/photos/8164713/pexels-photo-8164713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Apprentissage du Coran" class="img-fluid rounded mb-4">
+                    <h5><i class="fa fa-book text-success"></i> Comment apprendre ?</h5>
+                    <p>Nous proposons des cours adaptés à tous les niveaux, du débutant à l’avancé. Vous pouvez participer à des séances en groupe ou bénéficier de cours individuels selon vos disponibilités et besoins.</p>
+                    <h5><i class="fa fa-users text-success"></i> Rejoignez nos cours</h5>
+                    <p>Les cours sont organisés chaque semaine. Inscrivez-vous pour réserver votre place et commencer votre parcours d’apprentissage du Saint Coran.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Hadith & Sunna -->
+    <div class="modal fade" id="hadithModal" tabindex="-1" aria-labelledby="hadithModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-white">
+                    <h5 class="modal-title" id="hadithModalLabel">Hadith & Sunna</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.pexels.com/photos/2895295/pexels-photo-2895295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hadith & Sunna" class="img-fluid rounded mb-4">
+                    <h5><i class="fa fa-quote-left text-success"></i> Pourquoi les Hadiths et la Sunna ?</h5>
+                    <p>Les hadiths et la Sunna sont les sources essentielles de la guidance du Prophète Muhammad (ﷺ). Ils nous enseignent comment mener une vie juste, pleine de compassion et de sagesse. Chaque hadith est une lumière dans notre cheminement spirituel.</p>
+                    <h5><i class="fa fa-book text-success"></i> Apprendre les Hadiths</h5>
+                    <p>Rejoignez nos séances d’étude des hadiths, où nous expliquons chaque hadith dans le contexte de la vie moderne, afin de l'appliquer à notre quotidien.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Éducation Parentale -->
+    <div class="modal fade" id="educationModal" tabindex="-1" aria-labelledby="educationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-white">
+                    <h5 class="modal-title" id="educationModalLabel">Éducation Parentale</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.pexels.com/photos/9127605/pexels-photo-9127605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Éducation Parentale" class="img-fluid rounded mb-4">
+                    <h5><i class="fa fa-child text-success"></i> Pourquoi l'éducation parentale ?</h5>
+                    <p>L'éducation parentale est essentielle pour élever des enfants dans la foi et la vertu. Nos cours vous aident à appliquer les principes islamiques dans l'éducation quotidienne de vos enfants.</p>
+                    <h5><i class="fa fa-users text-success"></i> Cours disponibles</h5>
+                    <p>Rejoignez nos ateliers d'éducation parentale pour découvrir des méthodes pratiques pour élever des enfants respectueux, bienveillants et spirituellement éveillés.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Aider les Orphelins -->
+    <div class="modal fade" id="orphelinsModal" tabindex="-1" aria-labelledby="orphelinsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-white">
+                    <h5 class="modal-title" id="orphelinsModalLabel">Aider les Orphelins</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.pexels.com/photos/14325728/pexels-photo-14325728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Aider les Orphelins" class="img-fluid rounded mb-4">
+                    <h5><i class="fa fa-heart text-success"></i> Pourquoi aider les orphelins ?</h5>
+                    <p>Soutenir les orphelins est un acte honoré dans l'Islam. Leur offrir un avenir meilleur est une action vertueuse. Votre aide permet d'améliorer leur qualité de vie et de leur offrir un avenir plein d'espoir.</p>
+                    <h5><i class="fa fa-gift text-success"></i> Comment aider ?</h5>
+                    <p>Faites un don pour soutenir les orphelins et participez à nos programmes d’aide. Nous offrons un soutien financier, éducatif et émotionnel à ceux qui en ont besoin.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Fin des activités -->
+
+
+    <!-- Début des événements -->
+    <div class="container-fluid event py-5">
+        <div class="container py-5">
+            <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
+                Prochains <span class="text-success">Événements</span>
+            </h1>
+            <div id="events-container"></div>
+        </div>
+    </div>
+    <!-- Fin des événements -->
+
+
+    <!-- Début des sermons -->
+    <div class="container py-5">
+        <div class="row g-4 justify-content-center">
+            <!-- Sermon 1 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="sermon-item wow fadeIn" data-wow-delay="0.1s">
+                    <div class="overflow-hidden p-4 pb-0">
+                        <img src="img/sermon-1.jpg" class="img-fluid w-100" alt="Sermon 1">
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3" data-bs-toggle="modal" data-bs-target="#sermon1Modal">Comment se rapprocher d'Allah</a>
+                        <p class="mb-0">Pour se rapprocher d'Allah, il est essentiel de maintenir une prière sincère, de lire le Coran avec humilité, et de suivre les enseignements du Prophète Muhammad (ﷺ)...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sermon 2 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="sermon-item wow fadeIn" data-wow-delay="0.3s">
+                    <div class="overflow-hidden p-4 pb-0">
+                        <img src="img/sermon-2.jpg" class="img-fluid w-100" alt="Sermon 2">
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3" data-bs-toggle="modal" data-bs-target="#sermon2Modal">Importance du Hajj en Islam</a>
+                        <p class="mb-0">Le Hajj est l’un des cinq piliers de l’islam. Ce pèlerinage représente un acte de soumission totale à Allah et une purification des péchés...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sermon 3 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="sermon-item wow fadeIn" data-wow-delay="0.5s">
+                    <div class="overflow-hidden p-4 pb-0">
+                        <img src="img/sermon-3.jpg" class="img-fluid w-100" alt="Sermon 3">
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3" data-bs-toggle="modal" data-bs-target="#sermon3Modal">Importance des "Piliers" de l'Islam</a>
+                        <p class="mb-0">Les cinq piliers de l'islam sont les fondements essentiels de la foi musulmane. Ils guident les actions du croyant et renforcent sa relation avec Allah...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 1 -->
+    <div class="modal fade" id="sermon1Modal" tabindex="-1" aria-labelledby="sermon1ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-white">
+                    <h5 class="modal-title" id="sermon1ModalLabel"><i class="fa fa-star text-success me-2"></i> Comment se rapprocher d'Allah</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/sermon-1.jpg" class="img-fluid rounded mb-4" alt="Sermon 1">
+                    <p><strong><i class="fa fa-praying-hands text-success"></i> Description :</strong> Pour se rapprocher d'Allah, il est essentiel de maintenir une prière sincère et régulière, de lire et méditer le Coran avec humilité, et de suivre les enseignements du Prophète Muhammad (ﷺ). La repentance et la charité permettent également de purifier l'âme et d'attirer la miséricorde d'Allah.</p>
+                    <p><strong><i class="fa fa-book text-success"></i> Actions :</strong> En cultivant une foi authentique et une vie guidée par la Sunna, nous renforçons notre lien avec notre Créateur. Cela implique également de participer activement à des actions de bienfaisance et d'établir une connexion profonde avec la communauté.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="sermon2Modal" tabindex="-1" aria-labelledby="sermon2ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-white">
+                    <h5 class="modal-title" id="sermon2ModalLabel"><i class="fa fa-kaaba text-success me-2"></i> Importance du Hajj en Islam</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/sermon-2.jpg" class="img-fluid rounded mb-4" alt="Sermon 2">
+                    <p><strong><i class="fa fa-praying-hands text-success"></i> Description :</strong> Le Hajj est un voyage spirituel unique pour tout musulman capable d'y participer. Ce pèlerinage représente un acte de soumission totale à Allah et une purification des péchés.</p>
+                    <p><strong><i class="fa fa-users text-success"></i> Communauté :</strong> Le Hajj renforce l’unité de la communauté musulmane mondiale et rappelle la foi inébranlable d'Ibrahim (Abraham).</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="sermon3Modal" tabindex="-1" aria-labelledby="sermon3ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-white">
+                    <h5 class="modal-title" id="sermon3ModalLabel"><i class="fa fa-columns text-success me-2"></i> Importance des "Piliers" de l'Islam</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/sermon-3.jpg" class="img-fluid rounded mb-4" alt="Sermon 3">
+                    <p><strong><i class="fa fa-book-open text-success"></i> Description :</strong> Les cinq piliers de l'islam sont les fondements essentiels de la foi musulmane. Ils guident les actions du croyant et renforcent sa relation avec Allah.</p>
+                    <p><strong><i class="fa fa-check text-success"></i> Pilier par Pilier :</strong>
+                        - Shahada : croyance en l'unicité d'Allah.<br>
+                        - Salat : prière quotidienne.<br>
+                        - Zakat : aumône obligatoire.<br>
+                        - Sawm : jeûne du Ramadan.<br>
+                        - Hajj : pèlerinage à La Mecque.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin des sermons -->
+
+    <!-- Début du pied de page -->
+    <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: #222;">
+        <div class="container py-5">
+            <!-- Newsletter -->
+            <div class="row py-5 align-items-center">
+                <div class="col-lg-7 text-center text-lg-start mb-4 mb-lg-0">
+                    <h1 class="text-light mb-0">Abonnez-vous à notre newsletter</h1>
+                    <p class="text-secondary">Recevez les dernières nouvelles, événements et conseils de la Mosquée ESSALEM.</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-0 w-100 py-3 ps-5" placeholder="Votre email" type="email">
+                        <i class="fa fa-envelope position-absolute top-50 start-0 translate-middle-y text-success ms-3"></i>
+                        <button type="button" class="btn btn-success py-2 px-4 position-absolute top-50 end-0 translate-middle-y">S'abonner</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary"></div>
+
+            <!-- Footer Content -->
+            <div class="row g-4 footer-inner mt-5">
+                <!-- Section La Mosquée -->
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <h4 class="text-light mb-4">La <span class="text-success">Mosquée ESSALEM</span></h4>
+                    <p class="mb-4 text-secondary">La Mosquée ESSALEM, située à Sancé, est un lieu de foi, de paix et de solidarité. Elle joue un rôle central dans la vie spirituelle et sociale de la communauté musulmane locale.</p>
+                    <a href="#" class="btn btn-success py-2 px-4">Faire un don</a>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <h4 class="text-light mb-4">Contact</h4>
+                    <div class="d-flex flex-column">
+                        <h6 class="text-secondary mb-0">Adresse</h6>
+                        <div class="d-flex align-items-center border-bottom border-secondary py-3">
+                        <span class="flex-shrink-0 btn-square bg-success me-3 p-4">
+                            <i class="fa fa-map-marker-alt text-white"></i>
+                        </span>
+                            <a href="https://maps.app.goo.gl/1pk9UCKhByWM17jg7" class="text-secondary" target="_blank">1 Rue des tournesols, 71000 Sancé</a>
+                        </div>
+                        <h6 class="text-secondary mt-4 mb-0">Téléphone</h6>
+                        <div class="d-flex align-items-center py-3">
+                        <span class="flex-shrink-0 btn-square bg-success me-3 p-4">
+                            <i class="fa fa-phone-alt text-white"></i>
+                        </span>
+                            <a href="tel:+33663041812" class="text-secondary">+33 6 63 04 18 12</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Liens Utiles -->
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <h4 class="text-light mb-4">Liens Utiles</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Accueil</a>
+                        <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>À propos</a>
+                        <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Nos Services</a>
+                        <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Contactez-nous</a>
+                        <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Nos Événements</a>
+                        <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Dons</a>
+                        <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Sermons</a>
+                    </div>
+                </div>
+
+                <!-- Derniers Articles -->
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <h4 class="text-light mb-4">Derniers Articles</h4>
+                    <div class="d-flex border-bottom border-secondary py-3">
+                        <img src="img/blog-mini-1.jpg" class="img-fluid flex-shrink-0 rounded" alt="Article 1" style="width: 70px; height: 70px;">
+                        <div class="ps-3">
+                            <p class="mb-0 text-muted">01 Jan 2045</p>
+                            <a href="#" class="text-secondary">Importance de la prière quotidienne</a>
+                        </div>
+                    </div>
+                    <div class="d-flex py-3">
+                        <img src="img/blog-mini-2.jpg" class="img-fluid flex-shrink-0 rounded" alt="Article 2" style="width: 70px; height: 70px;">
+                        <div class="ps-3">
+                            <p class="mb-0 text-muted">01 Jan 2045</p>
+                            <a href="#" class="text-secondary">Les bienfaits du jeûne dans l'Islam</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="container py-4">
+            <div class="border-top border-secondary pb-4"></div>
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0 text-secondary">
+                    &copy; <a href="https://www.alhambra-web.com" class="text-success" target="_blank">Mosquée ESSALEM</a>. Tous droits réservés.
+                </div>
+                <div class="col-md-6 text-center text-md-end text-secondary">
+                    Conçu par <a href="https://htmlcodex.com" class="text-success" target="_blank">alhambraweb</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Fin du pied de page -->
+
+
+<!-- Retour en haut -->
+<a href="#" class="btn btn-lg btn-success btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script>
+    // Charger les données JSON
+    fetch("events.json")
+        .then(response => response.json())
+        .then(events => {
+            const container = document.getElementById("events-container");
+            events.forEach((event, index) => {
+                container.innerHTML += `
+                <div class="row g-4 event-item wow fadeIn" data-wow-delay="${0.1 * (index + 1)}s">
+                    <div class="col-3 col-lg-2 pe-0">
+                        <div class="text-center border-bottom border-dark py-3 px-2">
+                            <h6>${event.date}</h6>
+                            <p class="mb-0">${event.time}</p>
+                        </div>
+                    </div>
+                    <div class="col-9 col-lg-6 border-start border-dark pb-5">
+                        <div class="ms-3">
+                            <h4 class="mb-3">${event.title}</h4>
+                            <p class="mb-4">${event.description}</p>
+                            <a href="${event.link}" class="btn btn-success px-3" target="_blank">${event.button}</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="overflow-hidden mb-5">
+                            <img src="${event.image}" class="img-fluid w-100" alt="${event.title}">
+                        </div>
+                    </div>
+                </div>
+            `;
+            });
+        })
+        .catch(error => console.error("Erreur lors du chargement des événements :", error));
+</script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+</body>
+</html>

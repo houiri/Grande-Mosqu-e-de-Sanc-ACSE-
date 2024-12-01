@@ -1,0 +1,29 @@
+[
+  {
+    "date": "06 DEC 2024",
+    "time": "Ven 18:00",
+    "title": "REPAS DE LA FRATERNITE 2",
+    "description": "Le Repas de la Fraternité est un moment de partage et de convivialité où les membres de la communauté se réunissent autour d’un repas. Nous invitons les fidèles à participer en apportant des plats salés, sucrés ou des boissons, afin de nourrir l’esprit de solidarité et d’unité. Ce repas est une occasion de renforcer les liens fraternels, de soutenir les autres et de célébrer les bienfaits d’Allah dans un cadre chaleureux et accueillant.",
+    "button": "Rejoindre maintenant",
+    "image": "img/REPAS.webp",
+    "link": "https://example.com/repas-fraternite"
+  },
+  {
+    "date": "01 Jan 2045",
+    "time": "Mer 11:30",
+    "title": "Aïd al-Fitr",
+    "description": "Aïd al-Fitr est une fête de gratitude et de joie, marquant la fin du mois sacré du Ramadan. C’est un moment pour célébrer la purification de l’âme, partager des repas en famille, et faire preuve de générosité envers les moins privilégiés.",
+    "button": "Rejoindre maintenant",
+    "image": "img/events-2.jpg",
+    "link": "https://example.com/aid-al-fitr"
+  },
+  {
+    "date": "01 Jan 2045",
+    "time": "Jeu 11:30",
+    "title": "Aïd al-Adha",
+    "description": "Aïd al-Adha, la Fête du Sacrifice, commémore la soumission d'Ibrahim (Abraham) à la volonté d'Allah. C’est un moment de partage, de sacrifice et de solidarité.",
+    "button": "Rejoindre maintenant",
+    "image": "img/events-3.jpg",
+    "link": "https://example.com/aid-al-adha"
+  }
+]

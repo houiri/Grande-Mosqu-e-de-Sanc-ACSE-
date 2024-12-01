@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>ACSE - Modèle de site Web de mosquée</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Polices Web Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Feuille de style des icônes -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Feuilles de style des bibliothèques -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Feuille de style Bootstrap personnalisée -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Feuille de style du modèle -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .theme-card {
+            background: white;
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .theme-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .theme-card img {
+            width: 100%;
+            height: auto;
+        }
+        .btn-quiz {
+            background: #28a745;
+            color: white;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+        .btn-quiz:hover {
+            background: #1e7b34;
+        }
+        .quiz-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .question-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .option-btn:hover {
+            background-color: #e9ecef;
+        }
+        .option-btn.selected {
+            background-color: #28a745;
+            color: white;
+        }
+        .feedback {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Début du Spinner -->
+<div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-success" role="status"></div>
+</div>
+<!-- Fin du Spinner -->
+
+
+<!-- Début de la barre supérieure -->
+<div class="container-fluid fixed-top">
+    <div class="container" style="background: white">
+        <nav class="navbar navbar-light navbar-expand-lg py-3">
+            <a href="index.html" class="navbar-brand">
+                <h1 class="mb-0"><span class="text-success">MOSQUEE ESSALEM</span> </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-success"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                <div class="navbar-nav ms-lg-auto mx-xl-auto">
+                    <a href="index.html" class="nav-item nav-link active">Accueil</a>
+                    <a href="about.html" class="nav-item nav-link">À propos</a>
+                    <a href="activity.html" class="nav-item nav-link">Activités</a>
+                    <a href="event.html" class="nav-item nav-link">Événements</a>
+                    <a href="sermon.html" class="nav-item nav-link">Sermons</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Infos</a>
+                        <div class="dropdown-menu m-0 rounded-0">
+                            <a href="hadith.html" class="dropdown-item">Hadiths</a>
+                            <a href="quiz.html" class="dropdown-item">Quiz Islamique</a>
+                            <a href="learning.html" class="dropdown-item">Ressources Éducatives</a>
+                            <a href="faq.html" class="dropdown-item">FAQ</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="./donate.html" class="btn btn-success py-2 px-4 d-none d-xl-inline-block">  <i class="fa fa-hand-holding-heart me-2"></i>Faire un don</a>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Fin de la barre supérieure -->
+
+
+<!-- Hero Start for Islamic Quiz -->
+<div class="container-fluid hero-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7" style="background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="hero-header-inner animated zoomIn p-4">
+                    <p class="fs-4 text-success fw-bold">📚 BIENVENUE À LA FAQ</p>
+                    <h1 class="display-3 mb-4 text-dark fw-bold">Trouvez des réponses à vos questions</h1>
+                    <p class="text-secondary fs-5 mb-4">
+                        Vous avez des questions sur nos services éducatifs, les ressources disponibles ou nos activités ? Consultez notre FAQ pour plus de détails.
+                    </p>
+                    <a href="#faq-section" class="btn btn-success py-3 px-5 text-uppercase">
+                        <i class="fa fa-question-circle me-2"></i> Consulter la FAQ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container py-5" id="faq-section">
+    <h1 class="text-center text-success mb-4"><i class="fas fa-question-circle"></i> Questions Fréquentes</h1>
+    <p class="text-center text-secondary">
+        Voici les réponses aux questions les plus fréquemment posées concernant nos services éducatifs et les ressources disponibles à la mosquée.
+    </p>
+
+    <div class="accordion" id="faqAccordion">
+        <!-- Question 1 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+                    🧒 Quelles activités éducatives sont proposées pour les enfants ?
+                </button>
+            </h2>
+            <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Nous proposons des cours adaptés pour les enfants, incluant l'apprentissage du Coran, des histoires islamiques, ainsi que des activités ludiques pour les initier à la religion dans un environnement sain et sécurisé.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                    👨‍🏫 Y a-t-il des cours pour les adultes à la mosquée ?
+                </button>
+            </h2>
+            <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Oui, la mosquée propose des cours pour adultes, notamment des sessions d'apprentissage du Coran, des conférences sur l'Islam, des ateliers de purification de l'âme et des discussions sur la jurisprudence islamique.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                    📖 Les livres sont-ils disponibles à la mosquée ?
+                </button>
+            </h2>
+            <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Oui, la mosquée met à disposition une bibliothèque gratuite ouverte à tous. Vous y trouverez des livres islamiques sur divers sujets comme le Coran, la vie du Prophète, la jurisprudence, ainsi que des ressources pour l'apprentissage de l'arabe.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                    🕋 Comment puis-je accéder aux cours en ligne ?
+                </button>
+            </h2>
+            <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Nous proposons des cours en ligne via des plateformes éducatives associées à la mosquée. Les informations d'inscription sont disponibles sur notre site web ou à l'accueil de la mosquée.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+                    📅 Quand ont lieu les activités communautaires ?
+                </button>
+            </h2>
+            <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Les activités communautaires se déroulent régulièrement, incluant des événements pour la famille, des rencontres interreligieuses, des événements pour la célébration de l'Aïd, et des soirées d'étude du Coran. Consultez notre calendrier sur le site web pour plus de détails.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
+                    📚 Quels sont les horaires d'ouverture de la bibliothèque de la mosquée ?
+                </button>
+            </h2>
+            <div id="faqCollapse6" class="accordion-collapse collapse" aria-labelledby="faqHeading6" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    La bibliothèque est ouverte tous les jours de la semaine, sauf le vendredi, de 9h00 à 18h00. Vous pouvez y emprunter des livres gratuitement.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading7">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse7" aria-expanded="false" aria-controls="faqCollapse7">
+                    🕌 Qui peut participer aux activités de la mosquée ?
+                </button>
+            </h2>
+            <div id="faqCollapse7" class="accordion-collapse collapse" aria-labelledby="faqHeading7" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Les activités sont ouvertes à toute personne, indépendamment de son âge, de son sexe ou de ses origines. Nous encourageons une participation active de toute la communauté.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading8">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse8" aria-expanded="false" aria-controls="faqCollapse8">
+                    🕌 Y a-t-il des activités spéciales pour les femmes à la mosquée ?
+                </button>
+            </h2>
+            <div id="faqCollapse8" class="accordion-collapse collapse" aria-labelledby="faqHeading8" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Oui, nous organisons des activités spécifiques pour les femmes, telles que des cercles d’étude, des séminaires de développement spirituel et des événements pour célébrer les fêtes islamiques.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading9">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse9" aria-expanded="false" aria-controls="faqCollapse9">
+                    💻 Les cours sont-ils disponibles en ligne ?
+                </button>
+            </h2>
+            <div id="faqCollapse9" class="accordion-collapse collapse" aria-labelledby="faqHeading9" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Oui, plusieurs cours en ligne sont disponibles. Vous pouvez vous inscrire et suivre les cours directement depuis notre site web.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading10">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse10" aria-expanded="false" aria-controls="faqCollapse10">
+                    🧕 Les cours de religion sont-ils séparés entre hommes et femmes ?
+                </button>
+            </h2>
+            <div id="faqCollapse10" class="accordion-collapse collapse" aria-labelledby="faqHeading10" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Oui, les cours sont organisés en fonction des besoins de chaque groupe, avec des sessions séparées pour hommes et femmes afin de respecter les principes de la religion.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 11 à 20 -->
+        <!-- Ajoutez ici des questions supplémentaires pour atteindre 20 -->
+    </div>
+</div>
+
+Ch1474bn@1@
+<!-- Hero End for Islamic Quiz -->
+<!-- Début du pied de page -->
+<div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: #222;">
+    <div class="container py-5">
+        <!-- Newsletter -->
+        <div class="row py-5 align-items-center">
+            <div class="col-lg-7 text-center text-lg-start mb-4 mb-lg-0">
+                <h1 class="text-light mb-0">Abonnez-vous à notre newsletter</h1>
+                <p class="text-secondary">Recevez les dernières nouvelles, événements et conseils de la Mosquée ESSALEM.</p>
+            </div>
+            <div class="col-lg-5">
+                <div class="position-relative mx-auto">
+                    <input class="form-control border-0 w-100 py-3 ps-5" placeholder="Votre email" type="email">
+                    <i class="fa fa-envelope position-absolute top-50 start-0 translate-middle-y text-success ms-3"></i>
+                    <button type="button" class="btn btn-success py-2 px-4 position-absolute top-50 end-0 translate-middle-y">S'abonner</button>
+                </div>
+            </div>
+        </div>
+        <div class="border-top border-secondary"></div>
+
+        <!-- Footer Content -->
+        <div class="row g-4 footer-inner mt-5">
+            <!-- Section La Mosquée -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <h4 class="text-light mb-4">La <span class="text-success">Mosquée ESSALEM</span></h4>
+                <p class="mb-4 text-secondary">La Mosquée ESSALEM, située à Sancé, est un lieu de foi, de paix et de solidarité. Elle joue un rôle central dans la vie spirituelle et sociale de la communauté musulmane locale.</p>
+                <a href="#" class="btn btn-success py-2 px-4">Faire un don</a>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <h4 class="text-light mb-4">Contact</h4>
+                <div class="d-flex flex-column">
+                    <h6 class="text-secondary mb-0">Adresse</h6>
+                    <div class="d-flex align-items-center border-bottom border-secondary py-3">
+                        <span class="flex-shrink-0 btn-square bg-success me-3 p-4">
+                            <i class="fa fa-map-marker-alt text-white"></i>
+                        </span>
+                        <a href="https://maps.app.goo.gl/1pk9UCKhByWM17jg7" class="text-secondary" target="_blank">1 Rue des tournesols, 71000 Sancé</a>
+                    </div>
+                    <h6 class="text-secondary mt-4 mb-0">Téléphone</h6>
+                    <div class="d-flex align-items-center py-3">
+                        <span class="flex-shrink-0 btn-square bg-success me-3 p-4">
+                            <i class="fa fa-phone-alt text-white"></i>
+                        </span>
+                        <a href="tel:+33663041812" class="text-secondary">+33 6 63 04 18 12</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Liens Utiles -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <h4 class="text-light mb-4">Liens Utiles</h4>
+                <div class="d-flex flex-column align-items-start">
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Accueil</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>À propos</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Nos Services</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Contactez-nous</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Nos Événements</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Dons</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Sermons</a>
+                </div>
+            </div>
+
+            <!-- Derniers Articles -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <h4 class="text-light mb-4">Derniers Articles</h4>
+                <div class="d-flex border-bottom border-secondary py-3">
+                    <img src="img/blog-mini-1.jpg" class="img-fluid flex-shrink-0 rounded" alt="Article 1" style="width: 70px; height: 70px;">
+                    <div class="ps-3">
+                        <p class="mb-0 text-muted">01 Jan 2045</p>
+                        <a href="#" class="text-secondary">Importance de la prière quotidienne</a>
+                    </div>
+                </div>
+                <div class="d-flex py-3">
+                    <img src="img/blog-mini-2.jpg" class="img-fluid flex-shrink-0 rounded" alt="Article 2" style="width: 70px; height: 70px;">
+                    <div class="ps-3">
+                        <p class="mb-0 text-muted">01 Jan 2045</p>
+                        <a href="#" class="text-secondary">Les bienfaits du jeûne dans l'Islam</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="container py-4">
+        <div class="border-top border-secondary pb-4"></div>
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0 text-secondary">
+                &copy; <a href="https://www.alhambra-web.com" class="text-success" target="_blank">Mosquée ESSALEM</a>. Tous droits réservés.
+            </div>
+            <div class="col-md-6 text-center text-md-end text-secondary">
+                Conçu par <a href="https://htmlcodex.com" class="text-success" target="_blank">alhambraweb</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fin du pied de page -->
+
+
+<!-- Retour en haut -->
+<a href="#" class="btn btn-lg btn-success btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+</body>
+</html>

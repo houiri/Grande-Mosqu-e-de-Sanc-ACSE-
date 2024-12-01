@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>ACSE - Modèle de site Web de mosquée</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Polices Web Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Feuille de style des icônes -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Feuilles de style des bibliothèques -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Feuille de style Bootstrap personnalisée -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Feuille de style du modèle -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .theme-card {
+            background: white;
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .theme-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .theme-card img {
+            width: 100%;
+            height: auto;
+        }
+        .btn-quiz {
+            background: #28a745;
+            color: white;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+        .btn-quiz:hover {
+            background: #1e7b34;
+        }
+        .quiz-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .question-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .option-btn:hover {
+            background-color: #e9ecef;
+        }
+        .option-btn.selected {
+            background-color: #28a745;
+            color: white;
+        }
+        .feedback {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Début du Spinner -->
+<div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-success" role="status"></div>
+</div>
+<!-- Fin du Spinner -->
+
+
+<!-- Début de la barre supérieure -->
+<div class="container-fluid fixed-top">
+    <div class="container" style="background: white">
+        <nav class="navbar navbar-light navbar-expand-lg py-3">
+            <a href="index.html" class="navbar-brand">
+                <h1 class="mb-0"><span class="text-success">MOSQUEE ESSALEM</span> </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-success"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                <div class="navbar-nav ms-lg-auto mx-xl-auto">
+                    <a href="index.html" class="nav-item nav-link active">Accueil</a>
+                    <a href="about.html" class="nav-item nav-link">À propos</a>
+                    <a href="activity.html" class="nav-item nav-link">Activités</a>
+                    <a href="event.html" class="nav-item nav-link">Événements</a>
+                    <a href="sermon.html" class="nav-item nav-link">Sermons</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Infos</a>
+                        <div class="dropdown-menu m-0 rounded-0">
+                            <a href="hadith.html" class="dropdown-item">Hadiths</a>
+                            <a href="quiz.html" class="dropdown-item">Quiz Islamique</a>
+                            <a href="learning.html" class="dropdown-item">Ressources Éducatives</a>
+                            <a href="faq.html" class="dropdown-item">FAQ</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="./donate.html" class="btn btn-success py-2 px-4 d-none d-xl-inline-block">  <i class="fa fa-hand-holding-heart me-2"></i>Faire un don</a>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Fin de la barre supérieure -->
+
+
+<!-- Hero Start for Islamic Quiz -->
+<div class="container-fluid hero-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7" style="background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="hero-header-inner animated zoomIn p-4">
+                    <p class="fs-4 text-success fw-bold">BIENVENUE AU QUIZ ISLAMIQUE</p>
+                    <h1 class="display-3 mb-4 text-dark fw-bold">TESTEZ VOS CONNAISSANCES ISLAMIQUES</h1>
+                    <p class="text-secondary fs-5 mb-4">
+                        Explorez vos connaissances sur l'Islam, apprenez, et découvrez des faits intéressants en répondant à notre quiz.
+                    </p>
+                    <a href="#quiz-start" class="btn btn-success py-3 px-5 text-uppercase">
+                        <i class="fa fa-book me-2"></i> Commencer le Quiz
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End for Islamic Quiz -->
+
+
+<!-- Quiz Container -->
+<div class="container py-5" id="quiz-start">
+    <h1 class="text-center text-success mb-4">
+        <i class="fas fa-book" aria-hidden="true"></i> Quiz Islamique
+    </h1>
+    <p class="text-center text-secondary">Explorez vos connaissances islamiques en choisissant un thème et un niveau de difficulté.</p>
+
+    <div class="row g-4">
+        <!-- Le Coran -->
+        <div class="col-md-3">
+            <div class="theme-card">
+                <img src="https://images.pexels.com/photos/318451/pexels-photo-318451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image représentant le Coran" class="img-fluid" style="height: 15rem; object-fit: cover;">
+                <div class="p-3 text-center">
+                    <h2 class="h5 text-success">Le Coran</h2>
+                    <p class="text-secondary">Testez vos connaissances sur le Saint Coran.</p>
+                    <div class="btn-group" role="group" aria-label="Niveaux de difficulté pour le quiz sur le Coran">
+                        <button class="btn btn-quiz easy" onclick="startQuiz('coran', 'easy')">Facile 🌱</button>
+                        <button class="btn btn-quiz medium" onclick="startQuiz('coran', 'medium')">Moyen 🌿</button>
+                        <button class="btn btn-quiz hard" onclick="startQuiz('coran', 'hard')">Difficile 🌳</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Prophète Muhammad ﷺ -->
+        <div class="col-md-3">
+            <div class="theme-card">
+                <img src="https://fr.assabile.com/media/category/310x242/prophete-mohamed-sws-min.png" alt="Image représentant le Prophète Muhammad" class="img-fluid" style="height: 15rem; object-fit: cover;">
+                <div class="p-3 text-center">
+                    <h2 class="h5 text-success">Le Prophète Muhammad ﷺ</h2>
+                    <p class="text-secondary">Explorez la vie et les enseignements du Prophète.</p>
+                    <div class="btn-group" role="group" aria-label="Niveaux de difficulté pour le quiz sur le Prophète Muhammad">
+                        <button class="btn btn-quiz easy" onclick="startQuiz('prophete', 'easy')">Facile 🌱</button>
+                        <button class="btn btn-quiz medium" onclick="startQuiz('prophete', 'medium')">Moyen 🌿</button>
+                        <button class="btn btn-quiz hard" onclick="startQuiz('prophete', 'hard')">Difficile 🌳</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Les Piliers de l'Islam -->
+        <div class="col-md-3">
+            <div class="theme-card">
+                <img src="https://images.pexels.com/photos/815439/pexels-photo-815439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image représentant les Piliers de l'Islam" class="img-fluid" style="height: 15rem; object-fit: cover;">
+                <div class="p-3 text-center">
+                    <h2 class="h5 text-success">Les Piliers de l'Islam</h2>
+                    <p class="text-secondary">Apprenez-en plus sur les fondements de l'Islam.</p>
+                    <div class="btn-group" role="group" aria-label="Niveaux de difficulté pour le quiz sur les Piliers de l'Islam">
+                        <button class="btn btn-quiz easy" onclick="startQuiz('piliers', 'easy')">Facile 🌱</button>
+                        <button class="btn btn-quiz medium" onclick="startQuiz('piliers', 'medium')">Moyen 🌿</button>
+                        <button class="btn btn-quiz hard" onclick="startQuiz('piliers', 'hard')">Difficile 🌳</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Histoire et Civilisation Islamiques -->
+        <div class="col-md-3">
+            <div class="theme-card">
+                <img src="https://images.pexels.com/photos/12777419/pexels-photo-12777419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image représentant l'Histoire Islamique" class="img-fluid" style="height: 15rem; object-fit: cover;">
+                <div class="p-3 text-center">
+                    <h2 class="h5 text-success">Histoire Islamique</h2>
+                    <p class="text-secondary">Testez vos connaissances sur les événements historiques.</p>
+                    <div class="btn-group" role="group" aria-label="Niveaux de difficulté pour le quiz sur l'Histoire Islamique">
+                        <button class="btn btn-quiz easy" onclick="startQuiz('histoire', 'easy')">Facile 🌱</button>
+                        <button class="btn btn-quiz medium" onclick="startQuiz('histoire', 'medium')">Moyen 🌿</button>
+                        <button class="btn btn-quiz hard" onclick="startQuiz('histoire', 'hard')">Difficile 🌳</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="overlay" class="overlay"></div>
+<div id="quiz-container" class="quiz-container">
+    <h2 id="quiz-title" class="text-center text-success mb-3"></h2>
+    <div id="quiz-question" class="question"></div>
+    <div id="quiz-options" class="options"></div>
+    <div id="feedback" class="mt-3" style="display: none;"></div>
+    <button id="nextBtn" class="btn btn-success mt-4" style="display: none;" onclick="nextQuestion()">Suivant</button>
+    <button id="submitBtn" class="btn btn-primary mt-4" style="display: none;" onclick="submitQuiz()">Soumettre</button>
+    <button id="closeBtn" class="btn btn-secondary mt-4" onclick="closeQuiz()">Fermer</button>
+</div>
+
+<!-- Début du pied de page -->
+<div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: #222;">
+    <div class="container py-5">
+        <!-- Newsletter -->
+        <div class="row py-5 align-items-center">
+            <div class="col-lg-7 text-center text-lg-start mb-4 mb-lg-0">
+                <h1 class="text-light mb-0">Abonnez-vous à notre newsletter</h1>
+                <p class="text-secondary">Recevez les dernières nouvelles, événements et conseils de la Mosquée ESSALEM.</p>
+            </div>
+            <div class="col-lg-5">
+                <div class="position-relative mx-auto">
+                    <input class="form-control border-0 w-100 py-3 ps-5" placeholder="Votre email" type="email">
+                    <i class="fa fa-envelope position-absolute top-50 start-0 translate-middle-y text-success ms-3"></i>
+                    <button type="button" class="btn btn-success py-2 px-4 position-absolute top-50 end-0 translate-middle-y">S'abonner</button>
+                </div>
+            </div>
+        </div>
+        <div class="border-top border-secondary"></div>
+
+        <!-- Footer Content -->
+        <div class="row g-4 footer-inner mt-5">
+            <!-- Section La Mosquée -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <h4 class="text-light mb-4">La <span class="text-success">Mosquée ESSALEM</span></h4>
+                <p class="mb-4 text-secondary">La Mosquée ESSALEM, située à Sancé, est un lieu de foi, de paix et de solidarité. Elle joue un rôle central dans la vie spirituelle et sociale de la communauté musulmane locale.</p>
+                <a href="#" class="btn btn-success py-2 px-4">Faire un don</a>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <h4 class="text-light mb-4">Contact</h4>
+                <div class="d-flex flex-column">
+                    <h6 class="text-secondary mb-0">Adresse</h6>
+                    <div class="d-flex align-items-center border-bottom border-secondary py-3">
+                        <span class="flex-shrink-0 btn-square bg-success me-3 p-4">
+                            <i class="fa fa-map-marker-alt text-white"></i>
+                        </span>
+                        <a href="https://maps.app.goo.gl/1pk9UCKhByWM17jg7" class="text-secondary" target="_blank">1 Rue des tournesols, 71000 Sancé</a>
+                    </div>
+                    <h6 class="text-secondary mt-4 mb-0">Téléphone</h6>
+                    <div class="d-flex align-items-center py-3">
+                        <span class="flex-shrink-0 btn-square bg-success me-3 p-4">
+                            <i class="fa fa-phone-alt text-white"></i>
+                        </span>
+                        <a href="tel:+33663041812" class="text-secondary">+33 6 63 04 18 12</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Liens Utiles -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <h4 class="text-light mb-4">Liens Utiles</h4>
+                <div class="d-flex flex-column align-items-start">
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Accueil</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>À propos</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Nos Services</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Contactez-nous</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Nos Événements</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Dons</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-check text-success me-2"></i>Sermons</a>
+                </div>
+            </div>
+
+            <!-- Derniers Articles -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <h4 class="text-light mb-4">Derniers Articles</h4>
+                <div class="d-flex border-bottom border-secondary py-3">
+                    <img src="img/blog-mini-1.jpg" class="img-fluid flex-shrink-0 rounded" alt="Article 1" style="width: 70px; height: 70px;">
+                    <div class="ps-3">
+                        <p class="mb-0 text-muted">01 Jan 2045</p>
+                        <a href="#" class="text-secondary">Importance de la prière quotidienne</a>
+                    </div>
+                </div>
+                <div class="d-flex py-3">
+                    <img src="img/blog-mini-2.jpg" class="img-fluid flex-shrink-0 rounded" alt="Article 2" style="width: 70px; height: 70px;">
+                    <div class="ps-3">
+                        <p class="mb-0 text-muted">01 Jan 2045</p>
+                        <a href="#" class="text-secondary">Les bienfaits du jeûne dans l'Islam</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="container py-4">
+        <div class="border-top border-secondary pb-4"></div>
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0 text-secondary">
+                &copy; <a href="https://www.alhambra-web.com" class="text-success" target="_blank">Mosquée ESSALEM</a>. Tous droits réservés.
+            </div>
+            <div class="col-md-6 text-center text-md-end text-secondary">
+                Conçu par <a href="https://htmlcodex.com" class="text-success" target="_blank">alhambraweb</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fin du pied de page -->
+
+
+<!-- Retour en haut -->
+<a href="#" class="btn btn-lg btn-success btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script>
+    const quizData = {
+        coran: {
+            easy: [
+                {
+                    question: "Quelle est la première sourate du Coran ?",
+                    options: ["Al-Fatiha", "Al-Baqarah", "Al-Nas", "Al-Ikhlas"],
+                    answer: "Al-Fatiha",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Combien de sourates y a-t-il dans le Coran ?",
+                    options: ["114", "120", "99", "110"],
+                    answer: "114",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle est la plus longue sourate du Coran ?",
+                    options: ["Al-Baqarah", "An-Nisa", "Al-Imran", "Al-Kahf"],
+                    answer: "Al-Baqarah",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle est la plus courte sourate du Coran ?",
+                    options: ["Al-Kawthar", "Al-Ikhlas", "An-Nas", "Al-Asr"],
+                    answer: "Al-Kawthar",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Dans quelle sourate trouve-t-on le verset du Trône (Ayat al-Kursi) ?",
+                    options: ["Al-Baqarah", "An-Nisa", "Al-Imran", "Al-Kahf"],
+                    answer: "Al-Baqarah",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate est souvent récitée pour la protection ?",
+                    options: ["Al-Falaq", "An-Nas", "Al-Ikhlas", "Al-Kafirun"],
+                    answer: "An-Nas",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate parle de l'unicité d'Allah ?",
+                    options: ["Al-Ikhlas", "Al-Kafirun", "An-Nas", "Al-Falaq"],
+                    answer: "Al-Ikhlas",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle est la dernière sourate révélée du Coran ?",
+                    options: ["An-Nasr", "At-Tawbah", "Al-Maidah", "Al-Fath"],
+                    answer: "An-Nasr",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate est appelée 'le cœur du Coran' ?",
+                    options: ["Ya-Sin", "Al-Kahf", "Ar-Rahman", "Al-Baqarah"],
+                    answer: "Ya-Sin",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate mentionne l'histoire de Dhul-Qarnayn ?",
+                    options: ["Al-Kahf", "Al-Baqarah", "An-Nisa", "Al-Imran"],
+                    answer: "Al-Kahf",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                }
+            ],
+            medium: [
+                {
+                    question: "Combien de fois le mot 'Allah' est-il mentionné dans le Coran ?",
+                    options: ["2698", "2699", "2700", "2701"],
+                    answer: "2699",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate ne commence pas par 'Bismillah' ?",
+                    options: ["At-Tawbah", "Al-Fatiha", "An-Naml", "Al-Baqarah"],
+                    answer: "At-Tawbah",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quel prophète est mentionné le plus souvent dans le Coran ?",
+                    options: ["Moïse", "Abraham", "Jésus", "Noé"],
+                    answer: "Moïse",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate est considérée comme équivalente à un tiers du Coran ?",
+                    options: ["Al-Ikhlas", "Al-Baqarah", "Ya-Sin", "Ar-Rahman"],
+                    answer: "Al-Ikhlas",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Combien de juz (parties) y a-t-il dans le Coran ?",
+                    options: ["30", "29", "31", "32"],
+                    answer: "30",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle est la signification de 'Furqan', un autre nom du Coran ?",
+                    options: ["Le Critère", "La Lumière", "Le Guide", "La Révélation"],
+                    answer: "Le Critère",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate est récitée obligatoirement dans chaque unité de prière ?",
+                    options: ["Al-Fatiha", "Al-Ikhlas", "An-Nas", "Al-Falaq"],
+                    answer: "Al-Fatiha",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quel est le nombre total de lettres dans le Coran ?",
+                    options: ["323,015", "330,110", "340,740", "306,815"],
+                    answer: "323,015",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate est connue comme 'La Mère du Livre' ?",
+                    options: ["Al-Fatiha", "Al-Baqarah", "Al-Imran", "An-Nisa"],
+                    answer: "Al-Fatiha",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Combien de fois le mot 'jour' (yawm) est-il mentionné dans le Coran ?",
+                    options: ["365", "354", "375", "360"],
+                    answer: "365",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                }
+            ],
+            hard: [
+                {
+                    question: "Quelle est la seule sourate du Coran qui ne contient pas la lettre 'mim' ?",
+                    options: ["Al-Kawthar", "Al-Fatiha", "Al-Ikhlas", "An-Nasr"],
+                    answer: "Al-Kawthar",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quel mot apparaît exactement au milieu du Coran ?",
+                    options: ["Wa lyatalattaf", "Allah", "Muhammad", "Rahma"],
+                    answer: "Wa lyatalattaf",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate a été révélée en entier en une seule fois ?",
+                    options: ["Al-An'am", "Al-Kahf", "Ya-Sin", "Ar-Rahman"],
+                    answer: "Al-An'am",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Combien de fois le nom 'Maryam' (Marie) est-il mentionné dans le Coran ?",
+                    options: ["34", "32", "30", "36"],
+                    answer: "34",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle est la seule sourate qui commence par une lettre non pointée en arabe ?",
+                    options: ["Al-Qalam", "Sad", "Qaf", "Nun"],
+                    answer: "Sad",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quel est le plus long verset du Coran ?",
+                    options: ["Ayat al-Kursi", "Verset de la dette", "Verset de la lumière", "Verset du jeûne"],
+                    answer: "Verset de la dette",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate ne contient pas la lettre 'alif' ?",
+                    options: ["Al-Kawthar", "Al-Ikhlas", "Al-Asr", "Al-Masad"],
+                    answer: "Al-Kawthar",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quel est le nombre total de points diacritiques dans le Coran ?",
+                    options: ["1,015,030", "1,025,030", "1,035,030", "1,045,030"],
+                    answer: "1,015,030",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quelle sourate contient un verset qui, selon certains savants, équivaut à un tiers du Coran ?",
+                    options: ["Al-Ikhlas", "Al-Kahf", "Ya-Sin", "Al-Mulk"],
+                    answer: "Al-Ikhlas",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                },
+                {
+                    question: "Quel est le rapport entre le nombre de fois où les mots 'dunya' (monde) et 'akhirah' (au-delà) sont mentionnés dans le Coran ?",
+                    options: ["Égal", "Dunya plus que Akhirah", "Akhirah plus que Dunya", "Aucun rapport"],
+                    answer: "Égal",
+                    image: "https://univa.ucly.fr/wp-content/uploads/sites/10/2020/05/header-a-la-decouverte-des-origines-de-lislam.jpg"
+                }
+            ]
+        },
+        prophete: {
+            easy: [
+                {
+                    question: "En quelle année est né le Prophète Muhammad (paix soit sur lui) ?",
+                    options: ["570", "571", "572", "573"],
+                    answer: "570",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel était le nom du grand-père du Prophète Muhammad (paix soit sur lui) ?",
+                    options: ["Abdul Muttalib", "Abu Talib", "Abdullah", "Abbas"],
+                    answer: "Abdul Muttalib",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "À quel âge le Prophète Muhammad (paix soit sur lui) a-t-il reçu sa première révélation ?",
+                    options: ["40 ans", "35 ans", "45 ans", "50 ans"],
+                    answer: "40 ans",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quelle était la profession du Prophète Muhammad (paix soit sur lui) avant la prophétie ?",
+                    options: ["Commerçant", "Berger", "Agriculteur", "Artisan"],
+                    answer: "Commerçant",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel était le nom de la première épouse du Prophète Muhammad (paix soit sur lui) ?",
+                    options: ["Khadija", "Aisha", "Hafsa", "Zaynab"],
+                    answer: "Khadija",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Où le Prophète Muhammad (paix soit sur lui) est-il né ?",
+                    options: ["La Mecque", "Médine", "Taif", "Jérusalem"],
+                    answer: "La Mecque",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel était le surnom du Prophète Muhammad (paix soit sur lui) avant la prophétie ?",
+                    options: ["Al-Amin", "As-Sadiq", "Al-Mustafa", "Al-Habib"],
+                    answer: "Al-Amin",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "En quelle année a eu lieu l'Hégire (migration vers Médine) ?",
+                    options: ["622", "620", "624", "626"],
+                    answer: "622",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Combien d'enfants le Prophète Muhammad (paix soit sur lui) a-t-il eu ?",
+                    options: ["7", "5", "9", "3"],
+                    answer: "7",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel était le nom de l'oncle du Prophète Muhammad (paix soit sur lui) qui l'a élevé après la mort de son grand-père ?",
+                    options: ["Abu Talib", "Abu Lahab", "Al-Abbas", "Hamza"],
+                    answer: "Abu Talib",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                }
+            ],
+            medium: [
+                {
+                    question: "Quel était le nom de la montagne où le Prophète Muhammad (paix soit sur lui) recevait souvent ses révélations ?",
+                    options: ["Mont Hira", "Mont Uhud", "Mont Arafat", "Mont Thawr"],
+                    answer: "Mont Hira",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Qui était le premier homme à embrasser l'Islam ?",
+                    options: ["Abu Bakr", "Ali ibn Abi Talib", "Umar ibn Al-Khattab", "Uthman ibn Affan"],
+                    answer: "Abu Bakr",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quelle était la date de la bataille de Badr ?",
+                    options: ["17 Ramadan, 2 AH", "10 Shawwal, 3 AH", "1 Muharram, 1 AH", "9 Dhu al-Hijjah, 10 AH"],
+                    answer: "17 Ramadan, 2 AH",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel compagnon du Prophète était connu comme 'l'épée d'Allah' ?",
+                    options: ["Khalid ibn al-Walid", "Sa'd ibn Abi Waqqas", "Abu Ubaidah ibn al-Jarrah", "Amr ibn al-As"],
+                    answer: "Khalid ibn al-Walid",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Combien de fois le Prophète Muhammad (paix soit sur lui) a-t-il effectué le Hajj ?",
+                    options: ["1", "2", "3", "4"],
+                    answer: "1",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel était le nom du chameau du Prophète Muhammad (paix soit sur lui) ?",
+                    options: ["Al-Qaswa", "Al-Adba", "Al-Jad'a", "As-Sahba"],
+                    answer: "Al-Qaswa",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Qui a guidé le Prophète Muhammad (paix soit sur lui) et Abu Bakr lors de leur migration vers Médine ?",
+                    options: ["Abdullah ibn Uraiqit", "Salman al-Farsi", "Bilal ibn Rabah", "Zayd ibn Harithah"],
+                    answer: "Abdullah ibn Uraiqit",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel était le nom de la première mosquée construite par le Prophète Muhammad (paix soit sur lui) ?",
+                    options: ["Mosquée de Quba", "Masjid an-Nabawi", "Masjid al-Qiblatayn", "Masjid al-Haram"],
+                    answer: "Mosquée de Quba",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Combien de compagnons ont participé à la bataille de Badr aux côtés du Prophète ?",
+                    options: ["313", "314", "315", "316"],
+                    answer: "313",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel était le nom du fils adoptif du Prophète Muhammad (paix soit sur lui) ?",
+                    options: ["Zayd ibn Harithah", "Usama ibn Zayd", "Abdullah ibn Abbas", "Anas ibn Malik"],
+                    answer: "Zayd ibn Harithah",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                }
+            ],
+            hard: [
+                {
+                    question: "Quel était le nom de l'ange qui a apporté la révélation au Prophète Muhammad (paix soit sur lui) sous forme humaine ?",
+                    options: ["Dihya al-Kalbi", "Israfil", "Mikail", "Ridwan"],
+                    answer: "Dihya al-Kalbi",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quelle était la date exacte de la mort du Prophète Muhammad (paix soit sur lui) ?",
+                    options: ["12 Rabi al-Awwal, 11 AH", "9 Dhu al-Hijjah, 10 AH", "1 Muharram, 11 AH", "17 Ramadan, 10 AH"],
+                    answer: "12 Rabi al-Awwal, 11 AH",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel compagnon a suggéré la création d'un registre (Diwan) pour les musulmans ?",
+                    options: ["Umar ibn Al-Khattab", "Ali ibn Abi Talib", "Uthman ibn Affan", "Abu Bakr As-Siddiq"],
+                    answer: "Umar ibn Al-Khattab",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Qui était le scribe principal du Prophète Muhammad (paix soit sur lui) pour les révélations coraniques ?",
+                    options: ["Zayd ibn Thabit", "Ubayy ibn Ka'b", "Mu'awiyah ibn Abi Sufyan", "Abdullah ibn Mas'ud"],
+                    answer: "Zayd ibn Thabit",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel était le nom de l'expédition où le Prophète Muhammad (paix soit sur lui) a ordonné de ne pas couper les palmiers ?",
+                    options: ["Expédition de Banu Nadir", "Bataille de Khaybar", "Siège de Ta'if", "Conquête de La Mecque"],
+                    answer: "Expédition de Banu Nadir",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel compagnon a suggéré l'utilisation de l'appel à la prière (Adhan) ?",
+                    options: ["Umar ibn Al-Khattab", "Abdullah ibn Zayd", "Bilal ibn Rabah", "Abu Bakr As-Siddiq"],
+                    answer: "Abdullah ibn Zayd",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel était le nom du cheval du Prophète Muhammad (paix soit sur lui) ?",
+                    options: ["Al-Murtajiz", "Ya'sub", "Al-Lahif", "Al-Ward"],
+                    answer: "Al-Murtajiz",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Qui était le gouverneur du Yémen nommé par le Prophète Muhammad (paix soit sur lui) ?",
+                    options: ["Mu'adh ibn Jabal", "Abu Musa al-Ash'ari", "Khalid ibn al-Walid", "Amr ibn al-As"],
+                    answer: "Mu'adh ibn Jabal",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel était le nom de la bataille où les musulmans ont creusé un fossé autour de Médine ?",
+                    options: ["Bataille du Fossé", "Bataille d'Uhud", "Bataille de Mu'tah", "Bataille de Hunayn"],
+                    answer: "Bataille du Fossé",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                },
+                {
+                    question: "Quel compagnon a été envoyé par le Prophète Muhammad (paix soit sur lui) comme ambassadeur auprès du Négus d'Abyssinie ?",
+                    options: ["Ja'far ibn Abi Talib", "Amr ibn al-As", "Abu Musa al-Ash'ari", "Khalid ibn al-Walid"],
+                    answer: "Ja'far ibn Abi Talib",
+                    image: "https://starsinsymmetry.wordpress.com/wp-content/uploads/2023/10/cropped-untitled-1.jpg"
+                }
+            ]
+        },
+        piliers: {
+            easy: [
+                {
+                    question: "Combien y a-t-il de piliers de l'Islam ?",
+                    options: ["5", "6", "4", "7"],
+                    answer: "5",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le premier pilier de l'Islam ?",
+                    options: ["Shahada", "Salat", "Zakat", "Sawm"],
+                    answer: "Shahada",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Combien de prières obligatoires y a-t-il par jour ?",
+                    options: ["5", "3", "4", "6"],
+                    answer: "5",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Pendant quel mois les musulmans jeûnent-ils ?",
+                    options: ["Ramadan", "Sha'ban", "Rajab", "Muharram"],
+                    answer: "Ramadan",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le cinquième pilier de l'Islam ?",
+                    options: ["Hajj", "Zakat", "Sawm", "Salat"],
+                    answer: "Hajj",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Que signifie 'Zakat' ?",
+                    options: ["Aumône obligatoire", "Prière", "Jeûne", "Pèlerinage"],
+                    answer: "Aumône obligatoire",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quelle est la direction vers laquelle les musulmans prient ?",
+                    options: ["La Kaaba", "Jérusalem", "Médine", "La Mecque"],
+                    answer: "La Kaaba",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Combien de fois par an le Zakat doit-il être payé ?",
+                    options: ["Une fois", "Deux fois", "Quatre fois", "Douze fois"],
+                    answer: "Une fois",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le nom de la prière du vendredi ?",
+                    options: ["Salat al-Jumu'ah", "Salat al-Isha", "Salat al-Fajr", "Salat al-Maghrib"],
+                    answer: "Salat al-Jumu'ah",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quelle est la durée minimale du jeûne pendant le Ramadan ?",
+                    options: ["Du lever au coucher du soleil", "12 heures", "24 heures", "Du coucher au lever du soleil"],
+                    answer: "Du lever au coucher du soleil",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                }
+            ],
+            medium: [
+                {
+                    question: "Quel est le pourcentage standard du Zakat sur l'or et l'argent ?",
+                    options: ["2.5%", "5%", "10%", "20%"],
+                    answer: "2.5%",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Combien de fois faut-il faire le tour de la Kaaba pendant le Hajj ?",
+                    options: ["7", "5", "3", "10"],
+                    answer: "7",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le nom de la station debout à Arafat pendant le Hajj ?",
+                    options: ["Wuquf", "Tawaf", "Sa'i", "Rami"],
+                    answer: "Wuquf",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quelle est la durée minimale de séjour à Mina pendant le Hajj ?",
+                    options: ["3 jours", "2 jours", "4 jours", "1 jour"],
+                    answer: "3 jours",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le nom de l'état de pureté rituelle requis pour la prière ?",
+                    options: ["Wudu", "Ghusl", "Tayammum", "Ihram"],
+                    answer: "Wudu",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Combien de rakats comporte la prière de Maghrib ?",
+                    options: ["3", "2", "4", "5"],
+                    answer: "3",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le nom de la prière surérogatoire effectuée pendant les nuits de Ramadan ?",
+                    options: ["Tarawih", "Tahajjud", "Duha", "Witr"],
+                    answer: "Tarawih",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quelle est la durée minimale de l'Itikaf (retraite spirituelle) ?",
+                    options: ["Un jour et une nuit", "Trois jours", "Dix jours", "Un mois"],
+                    answer: "Un jour et une nuit",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le nom du repas pris avant l'aube pendant le Ramadan ?",
+                    options: ["Suhoor", "Iftar", "Ghada", "Asha"],
+                    answer: "Suhoor",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quelle est la valeur minimale de l'or pour être soumis au Zakat ?",
+                    options: ["85 grammes", "50 grammes", "100 grammes", "75 grammes"],
+                    answer: "85 grammes",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                }
+            ],
+            hard: [
+                {
+                    question: "Quel est le nom de la prière effectuée en cas d'éclipse solaire ou lunaire ?",
+                    options: ["Salat al-Kusuf", "Salat al-Istisqa", "Salat al-Khawf", "Salat al-Janazah"],
+                    answer: "Salat al-Kusuf",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quelle est la durée maximale autorisée pour combiner et raccourcir les prières en voyage ?",
+                    options: ["3 jours", "4 jours", "15 jours", "Pas de limite"],
+                    answer: "3 jours",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le nom du jeûne de compensation pour les jours manqués de Ramadan ?",
+                    options: ["Qada", "Fidya", "Kaffarah", "Sadaqah"],
+                    answer: "Qada",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quelle est la distance minimale pour qu'un voyage soit considéré comme permettant de raccourcir les prières ?",
+                    options: ["48 miles", "50 miles", "80 km", "100 km"],
+                    answer: "48 miles",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le taux de Zakat sur les récoltes irriguées naturellement (par la pluie) ?",
+                    options: ["10%", "5%", "2.5%", "20%"],
+                    answer: "10%",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quelle est la pénalité (Fidya) pour manquer un jour de jeûne sans raison valable ?",
+                    options: ["Nourrir 60 pauvres", "Jeûner 60 jours consécutifs", "Sacrifier un mouton", "Payer la valeur d'un gramme d'or"],
+                    answer: "Nourrir 60 pauvres",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le nom de la prière effectuée pour demander la pluie ?",
+                    options: ["Salat al-Istisqa", "Salat al-Kusuf", "Salat al-Khawf", "Salat al-Janazah"],
+                    answer: "Salat al-Istisqa",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Combien de fois faut-il faire le Sa'i entre Safa et Marwa pendant le Hajj ?",
+                    options: ["7", "3", "5", "10"],
+                    answer: "7",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quel est le nom du lieu où les pèlerins jettent des cailloux pendant le Hajj ?",
+                    options: ["Jamarat", "Muzdalifah", "Arafat", "Mina"],
+                    answer: "Jamarat",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                },
+                {
+                    question: "Quelle est la durée minimale de l'Ihram pour le Hajj ?",
+                    options: ["Du Miqat jusqu'à la fin des rites", "3 jours", "10 jours", "1 mois"],
+                    answer: "Du Miqat jusqu'à la fin des rites",
+                    image: "https://www.freewebheaders.com/wp-content/gallery/islam/the-kaaba-and-al-masjid-al-haram-in-mecca-web-header.jpg"
+                }
+            ]
+        },
+        histoire: {
+            easy: [
+                {
+                    question: "En quelle année a eu lieu l'Hégire (migration du Prophète Muhammad de La Mecque à Médine) ?",
+                    options: ["622", "610", "632", "650"],
+                    answer: "622",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui était le premier calife après le Prophète Muhammad ?",
+                    options: ["Abu Bakr As-Siddiq", "Umar ibn Al-Khattab", "Uthman ibn Affan", "Ali ibn Abi Talib"],
+                    answer: "Abu Bakr As-Siddiq",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quelle bataille est connue comme la 'Victoire Décisive' en Islam ?",
+                    options: ["Bataille de Badr", "Bataille d'Uhud", "Bataille du Fossé", "Conquête de La Mecque"],
+                    answer: "Bataille de Badr",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui a compilé le Coran sous forme de livre ?",
+                    options: ["Uthman ibn Affan", "Abu Bakr As-Siddiq", "Umar ibn Al-Khattab", "Ali ibn Abi Talib"],
+                    answer: "Uthman ibn Affan",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel calife a étendu l'empire islamique jusqu'en Espagne ?",
+                    options: ["Al-Walid I", "Umar ibn Abdul Aziz", "Harun al-Rashid", "Abd al-Malik"],
+                    answer: "Al-Walid I",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quelle dynastie a régné sur l'empire islamique de 661 à 750 ?",
+                    options: ["Omeyyades", "Abbassides", "Fatimides", "Seldjoukides"],
+                    answer: "Omeyyades",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui était le dernier prophète avant Muhammad (paix soit sur lui) ?",
+                    options: ["Isa (Jésus)", "Musa (Moïse)", "Ibrahim (Abraham)", "Nuh (Noé)"],
+                    answer: "Isa (Jésus)",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quelle ville est connue comme la 'Ville du Prophète' ?",
+                    options: ["Médine", "La Mecque", "Jérusalem", "Damas"],
+                    answer: "Médine",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel calife a introduit le calendrier islamique ?",
+                    options: ["Umar ibn Al-Khattab", "Abu Bakr As-Siddiq", "Uthman ibn Affan", "Ali ibn Abi Talib"],
+                    answer: "Umar ibn Al-Khattab",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quelle bataille est connue comme la 'Victoire Manifeste' mentionnée dans le Coran ?",
+                    options: ["Traité de Hudaybiyyah", "Bataille de Badr", "Conquête de La Mecque", "Bataille de Khaybar"],
+                    answer: "Traité de Hudaybiyyah",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                }
+            ],
+            medium: [
+                {
+                    question: "Qui a fondé la dynastie Abbasside ?",
+                    options: ["Abu al-Abbas as-Saffah", "Harun al-Rashid", "Al-Mansur", "Al-Ma'mun"],
+                    answer: "Abu al-Abbas as-Saffah",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel calife a fondé la Maison de la Sagesse à Bagdad ?",
+                    options: ["Al-Ma'mun", "Harun al-Rashid", "Al-Mutawakkil", "Al-Mu'tasim"],
+                    answer: "Al-Ma'mun",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui était le commandant musulman lors de la conquête de l'Espagne ?",
+                    options: ["Tariq ibn Ziyad", "Musa ibn Nusayr", "Salah ad-Din", "Khalid ibn al-Walid"],
+                    answer: "Tariq ibn Ziyad",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quelle bataille a mis fin à la dynastie Omeyyade ?",
+                    options: ["Bataille du Grand Zab", "Bataille de Karbala", "Bataille de Siffin", "Bataille de Qadisiyyah"],
+                    answer: "Bataille du Grand Zab",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui a fondé l'empire Fatimide ?",
+                    options: ["Al-Mahdi Billah", "Al-Mu'izz li-Din Allah", "Al-Hakim bi-Amr Allah", "Al-Aziz Billah"],
+                    answer: "Al-Mahdi Billah",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel sultan a repris Jérusalem aux croisés en 1187 ?",
+                    options: ["Salah ad-Din", "Baybars", "Qutuz", "Nur ad-Din"],
+                    answer: "Salah ad-Din",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui a fondé l'empire Ottoman ?",
+                    options: ["Osman I", "Mehmed II", "Suleiman le Magnifique", "Selim I"],
+                    answer: "Osman I",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel calife a ordonné la destruction de la Grande Bibliothèque d'Alexandrie ?",
+                    options: ["Aucun calife", "Umar ibn Al-Khattab", "Uthman ibn Affan", "Ali ibn Abi Talib"],
+                    answer: "Aucun calife",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui était le fondateur de la dynastie Safavide en Perse ?",
+                    options: ["Ismail I", "Abbas I", "Tahmasp I", "Hussein I"],
+                    answer: "Ismail I",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel était le nom de la première université du monde, fondée par une femme musulmane ?",
+                    options: ["Université Al-Qarawiyyin", "Université Al-Azhar", "Université de Cordoue", "Université de Bagdad"],
+                    answer: "Université Al-Qarawiyyin",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                }
+            ],
+            hard: [
+                {
+                    question: "Qui a écrit le 'Muqaddimah', considéré comme un précurseur de la sociologie moderne ?",
+                    options: ["Ibn Khaldun", "Al-Ghazali", "Ibn Sina", "Ibn Rushd"],
+                    answer: "Ibn Khaldun",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel savant musulman a découvert la circulation pulmonaire ?",
+                    options: ["Ibn al-Nafis", "Al-Razi", "Ibn Sina", "Al-Zahrawi"],
+                    answer: "Ibn al-Nafis",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui a fondé la méthode scientifique moderne ?",
+                    options: ["Ibn al-Haytham", "Al-Biruni", "Al-Kindi", "Al-Farabi"],
+                    answer: "Ibn al-Haytham",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel calife a fondé la ville de Bagdad ?",
+                    options: ["Al-Mansur", "Harun al-Rashid", "Al-Ma'mun", "Al-Mu'tasim"],
+                    answer: "Al-Mansur",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui a inventé l'algorithme ?",
+                    options: ["Al-Khwarizmi", "Omar Khayyam", "Al-Battani", "Ibn al-Haytham"],
+                    answer: "Al-Khwarizmi",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel sultan ottoman a conquis Constantinople en 1453 ?",
+                    options: ["Mehmed II", "Bayezid I", "Suleiman le Magnifique", "Selim I"],
+                    answer: "Mehmed II",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui a écrit le 'Canon de la médecine', utilisé comme manuel médical en Europe jusqu'au 17e siècle ?",
+                    options: ["Ibn Sina (Avicenne)", "Al-Razi", "Ibn al-Nafis", "Al-Zahrawi"],
+                    answer: "Ibn Sina (Avicenne)",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel savant musulman a développé l'algèbre ?",
+                    options: ["Al-Khwarizmi", "Omar Khayyam", "Al-Biruni", "Ibn al-Haytham"],
+                    answer: "Al-Khwarizmi",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Qui a fondé la dynastie Ayyoubide ?",
+                    options: ["Salah ad-Din", "Nur ad-Din", "Al-Adil", "Al-Kamil"],
+                    answer: "Salah ad-Din",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                },
+                {
+                    question: "Quel calife a établi le 'Bayt al-Hikma' (Maison de la Sagesse) à Bagdad ?",
+                    options: ["Al-Ma'mun", "Harun al-Rashid", "Al-Mansur", "Al-Mu'tasim"],
+                    answer: "Al-Ma'mun",
+                    image: "https://s3.eu-west-3.amazonaws.com/customer-eu.oasiscenter.www/7716/5053/8197/headerdefault.jpg"
+                }
+            ]
+        }
+    };
+
+    let currentQuiz = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(theme, difficulty) {
+        currentQuiz = quizData[theme][difficulty];
+        currentQuestionIndex = 0;
+        score = 0;
+        document.getElementById('quiz-title').textContent = `Quiz : ${theme} - ${difficulty}`;
+        document.getElementById('quiz-container').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+        renderQuestion();
+    }
+
+    function renderQuestion() {
+        const question = currentQuiz[currentQuestionIndex];
+        document.getElementById('quiz-question').innerHTML = `
+            <img src="${question.image}" alt="Question Image" class="question-image">
+            <h4>${question.question}</h4>
+        `;
+        document.getElementById('quiz-options').innerHTML = question.options.map((option, index) => `
+            <button class="option-btn" onclick="selectAnswer(${index})">${option}</button>
+        `).join('');
+        document.getElementById('nextBtn').style.display = 'none';
+        document.getElementById('feedback').style.display = 'none';
+        if (currentQuestionIndex === currentQuiz.length - 1) {
+            document.getElementById('submitBtn').style.display = 'inline-block';
+        } else {
+            document.getElementById('submitBtn').style.display = 'none';
+        }
+    }
+
+    function selectAnswer(index) {
+        const options = document.querySelectorAll('.option-btn');
+        options.forEach(option => option.classList.remove('selected'));
+        options[index].classList.add('selected');
+        document.getElementById('submitBtn').style.display = 'inline-block';
+    }
+
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < currentQuiz.length) {
+            renderQuestion();
+        } else {
+            showResults();
+        }
+    }
+
+    function submitQuiz() {
+        const selectedOption = document.querySelector('.option-btn.selected');
+        if (selectedOption) {
+            checkAnswer(selectedOption.textContent);
+        } else {
+            alert("Veuillez sélectionner une réponse avant de continuer.");
+        }
+    }
+
+    function checkAnswer(selectedAnswer) {
+        const question = currentQuiz[currentQuestionIndex];
+        const feedbackElement = document.getElementById('feedback');
+
+        if (selectedAnswer === question.answer) {
+            score++;
+            feedbackElement.textContent = "Correct ! Bien joué !";
+            feedbackElement.className = "feedback correct";
+        } else {
+            feedbackElement.textContent = `Incorrect. La bonne réponse était : ${question.answer}`;
+            feedbackElement.className = "feedback incorrect";
+        }
+
+        feedbackElement.style.display = 'block';
+        document.getElementById('nextBtn').style.display = 'inline-block';
+        document.getElementById('submitBtn').style.display = 'none';
+    }
+
+    function showResults() {
+        const quizContainer = document.getElementById('quiz-container');
+        const percentage = (score / currentQuiz.length) * 100;
+        quizContainer.innerHTML = `
+            <h2 class="text-center text-success mb-4">Résultats du Quiz</h2>
+            <p class="text-center">Vous avez obtenu ${score} sur ${currentQuiz.length} questions correctes.</p>
+            <p class="text-center">Pourcentage : ${percentage.toFixed(2)}%</p>
+            <button class="btn btn-success mt-4" onclick="closeQuiz()">Fermer</button>
+        `;
+    }
+
+    function closeQuiz() {
+        document.getElementById('quiz-container').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+</script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+</body>
+</html>
