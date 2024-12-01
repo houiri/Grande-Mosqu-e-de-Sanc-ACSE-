@@ -115,6 +115,30 @@
             background-color: #f8d7da;
             color: #721c24;
         }
+        @media (max-width: 576px) {
+            #quiz-container {
+                padding: 15px; /* Ajoute de l'espace intérieur pour un meilleur confort */
+                margin-top: 20px;
+                width: 100%;
+            }
+            #quiz-title {
+                font-size: 1.5rem; /* Taille du texte ajustée */
+            }
+            .options {
+                display: flex;
+                flex-direction: column; /* Les options s'alignent en colonne sur mobile */
+                gap: 10px; /* Ajoute de l'espacement entre les options */
+            }
+            .options button {
+                width: 100%; /* Les boutons occupent toute la largeur */
+            }
+            #feedback {
+                font-size: 1rem; /* Ajuste la taille du texte du feedback */
+            }
+            button {
+                font-size: 1rem; /* Réduit légèrement la taille des boutons */
+            }
+        }
     </style>
 </head>
 <body>
