@@ -185,7 +185,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 }
 
 .navbar-toggler {
-    background: var(--bs-secondary);
+    background: white;
     color: var(--bs-light) !important;
     padding: 10px 20px;
     border: 2px solid var(--bs-primary) !important;
