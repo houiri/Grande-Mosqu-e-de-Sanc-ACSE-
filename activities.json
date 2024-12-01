@@ -1,0 +1,103 @@
+[
+  {
+    "date": "01 Jan 2024",
+    "time": "Lun 09:00",
+    "title": "Développement de la Mosquée",
+    "description": "Contribuez à l’évolution de notre mosquée en participant à des projets qui renforcent son rôle au sein de la communauté. Chaque geste soutient un espace de foi, de savoir et de partage. Ensemble, bâtissons l’avenir.",
+    "details": "Le projet inclut la rénovation des salles de prière, la création d’espaces éducatifs et l’installation d’équipements modernes. Votre contribution est essentielle pour concrétiser ces projets ambitieux.",
+    "steps": [
+      "Identifier les besoins prioritaires de la mosquée.",
+      "Organiser des campagnes de collecte de fonds.",
+      "Collaborer avec des partenaires locaux et architectes.",
+      "Superviser les travaux pour garantir leur qualité."
+    ],
+    "image": "https://lh3.googleusercontent.com/p/AF1QipPaULbdrTNdaIfWPBgCQRnw_2zoK3IxJVerde0O=s1360-w1360-h1020",
+    "button": "En savoir plus",
+    "link": "#"
+  },
+  {
+    "date": "05 Jan 2024",
+    "time": "Ven 14:00",
+    "title": "Charité & Dons",
+    "description": "La charité est un pilier fondamental de notre foi. En contribuant, vous soutenez les plus démunis et financez des projets communautaires. Chaque don, petit ou grand, est une bénédiction qui fait la différence.",
+    "details": "Vos dons permettent de fournir des repas aux familles dans le besoin, de financer des initiatives communautaires et de soutenir des causes humanitaires locales et internationales.",
+    "steps": [
+      "Lancer des campagnes de sensibilisation.",
+      "Récolter les dons matériels et financiers.",
+      "Distribuer les ressources aux bénéficiaires identifiés.",
+      "Assurer la transparence et fournir des rapports sur l’impact."
+    ],
+    "image": "https://images.pexels.com/photos/8060427/pexels-photo-8060427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "button": "En savoir plus",
+    "link": "#"
+  },
+  {
+    "date": "10 Jan 2024",
+    "time": "Mer 17:00",
+    "title": "Apprentissage du Coran",
+    "description": "Découvrez la beauté et la sagesse du Coran à travers des cours adaptés à tous les âges et niveaux. Notre mosquée propose un enseignement qui inspire et guide dans la lumière des paroles d’Allah.",
+    "details": "Les cours comprennent l’apprentissage des règles de récitation, la mémorisation des versets et leur interprétation. Des sessions spécifiques sont proposées pour les enfants, les débutants et les niveaux avancés.",
+    "pricing": {
+      "children": "10 € / mois",
+      "beginners": "20 € / mois",
+      "advanced": "30 € / mois"
+    },
+    "steps": [
+      "Inscription via le site ou sur place.",
+      "Choix du niveau adapté.",
+      "Participation aux cours hebdomadaires.",
+      "Évaluations régulières pour mesurer les progrès."
+    ],
+    "image": "https://lecoeurdescroyants.com/wp-content/uploads/2016/07/maxresdefault-1.jpg",
+    "button": "En savoir plus",
+    "link": "#"
+  },
+  {
+    "date": "15 Jan 2024",
+    "time": "Dim 10:00",
+    "title": "Hadith & Sunna",
+    "description": "Approfondissez votre foi en étudiant les hadiths authentiques et la Sunna du Prophète Muhammad (ﷺ). Ces enseignements précieux éclairent notre quotidien et nous guident vers une vie alignée sur les valeurs de l’islam : paix, justice et bienveillance.",
+    "details": "Les sessions incluent l’étude des hadiths authentiques et leur application dans la vie quotidienne. Nos enseignants qualifiés vous guideront dans votre apprentissage.",
+    "steps": [
+      "Étude des hadiths essentiels.",
+      "Discussion sur les valeurs tirées des enseignements.",
+      "Application des principes dans la vie quotidienne.",
+      "Ateliers pour partager les connaissances acquises."
+    ],
+    "image": "https://rossingcenter.org/wp-content/uploads/2021/11/islamic-book-3738793_1280-3-1024x768.jpg",
+    "button": "En savoir plus",
+    "link": "#"
+  },
+  {
+    "date": "20 Jan 2024",
+    "time": "Sam 15:00",
+    "title": "Éducation Parentale",
+    "description": "Renforcez votre rôle de parent grâce à des conseils inspirés des enseignements islamiques. Nos programmes d’éducation parentale offrent des outils pratiques et spirituels pour élever des enfants dans la foi, la bienveillance et le respect des valeurs familiales.",
+    "details": "Ces ateliers abordent des thèmes comme la communication parent-enfant, la gestion des défis éducatifs et la transmission des valeurs islamiques à travers des exemples concrets.",
+    "steps": [
+      "Inscription aux sessions thématiques.",
+      "Participation active aux discussions et ateliers.",
+      "Mise en pratique des techniques apprises.",
+      "Échanges entre parents pour partager les expériences."
+    ],
+    "image": "https://www.leparisien.fr/resizer/ZmD8GFUlw4l8qlTNOL4BgSThdRs=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/CDLLYBGPIWD7DJGHMU67P32MLQ.jpg",
+    "button": "En savoir plus",
+    "link": "#"
+  },
+  {
+    "date": "25 Jan 2024",
+    "time": "Jeu 12:00",
+    "title": "Aider les Orphelins",
+    "description": "Soutenir les orphelins est un acte de charité honoré dans l'islam. En contribuant à leur bien-être, nous leur offrons un avenir meilleur, rempli d’amour et de soutien. Votre aide permet de fournir des ressources essentielles aux plus vulnérables.",
+    "details": "Les dons sont utilisés pour financer l’éducation, les soins de santé et les besoins essentiels des orphelins. Rejoignez notre mission pour créer un impact durable.",
+    "steps": [
+      "Collecter les dons pour les orphelins.",
+      "Collaborer avec des organisations partenaires.",
+      "Distribuer les ressources nécessaires.",
+      "Suivre les progrès des bénéficiaires."
+    ],
+    "image": "https://static.euronews.com/articles/768247/1024x538_768247.jpg",
+    "button": "En savoir plus",
+    "link": "#"
+  }
+]

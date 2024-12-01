@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>LAMosquée - Modèle de Site Web pour Mosquée</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Polices Web Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Feuille de style des icônes -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Feuilles de style des bibliothèques -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Feuille de style Bootstrap personnalisée -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Feuille de style du modèle -->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Début du Spinner -->
+<div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" role="status"></div>
+</div>
+<!-- Fin du Spinner -->
+
+<!-- Début de la barre supérieure -->
+<div class="container-fluid fixed-top">
+
+    <div class="container" style="background: white">
+        <nav class="navbar navbar-light navbar-expand-lg py-3">
+            <a href="index.html" class="navbar-brand">
+                <h1 class="mb-0"><span class="text-success">MOSQUEE ESSALEM</span> </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-success"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                <div class="navbar-nav ms-lg-auto mx-xl-auto">
+                    <a href="index.html" class="nav-item nav-link ">Accueil</a>
+                    <a href="about.html" class="nav-item nav-link">À propos</a>
+                    <a href="activity.html" class="nav-item nav-link active">Activités</a>
+                    <a href="event.html" class="nav-item nav-link">Événements</a>
+                    <a href="sermon.html" class="nav-item nav-link">Sermons</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Infos</a>
+                        <div class="dropdown-menu m-0 rounded-0">
+                            <a href="hadith.html" class="dropdown-item">Hadiths</a>
+                            <a href="quiz.html" class="dropdown-item">Quiz Islamique</a>
+                            <a href="learning.html" class="dropdown-item">Ressources Éducatives</a>
+                            <a href="faq.html" class="dropdown-item">FAQ</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="./donate.html" class="btn btn-success py-2 px-4 d-none d-xl-inline-block">  <i class="fa fa-hand-holding-heart me-2"></i>Faire un don</a>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Fin de la barre supérieure -->
+
+<!-- Début de l'en-tête héros -->
+<div class="container-fluid hero-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7" style="background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="hero-header-inner animated zoomIn p-4">
+                    <p class="fs-4 text-success fw-bold">NOS ACTIVITÉS</p>
+                    <h1 class="display-3 mb-4 text-dark fw-bold">Découvrez Nos Projets et Initiatives</h1>
+                    <p class="text-secondary fs-5 mb-4">
+                        À la Mosquée ESSALEM, nous nous engageons à offrir un espace d’apprentissage, de spiritualité et de solidarité. Nos activités sont conçues pour répondre aux besoins éducatifs, sociaux et spirituels de notre communauté.
+                    </p>
+                    <a href="#activites" class="btn btn-success py-3 px-5 text-uppercase">
+                        <i class="fa fa-list me-2"></i> Voir les activités
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin de l'en-tête héros -->
+
+<!-- Début des Activités -->
+<div id="activites" class="container-fluid activities py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <p class="fs-5 text-uppercase text-primary">Activités</p>
+            <h1 class="display-3">Explorez Nos Activités</h1>
+        </div>
+        <div id="activities-container"></div>
+    </div>
+</div>
+
+<!-- Fin des Activités -->
+
+<!-- Début des Témoignages -->
+<div class="container-fluid testimonial py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <p class="fs-5 text-uppercase text-primary">Témoignages</p>
+            <h1 class="display-3">Ce que disent les personnalités sur l'Islam</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.1s">
+            <!-- Témoignage 1 -->
+            <div class="testimonial-item">
+                <div class="d-flex mb-3">
+                    <div class="position-relative">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/muhammad_ali_photo_by_stanley_weston_archive_photos_getty_482857506.jpg?crop=1xw:0.75xh;center,top&resize=1200:*" class="img-fluid rounded-circle" alt="Muhammad Ali">
+                        <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
+                            <i class="fa fa-quote-left text-dark"></i>
+                        </div>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h5 class="mb-0">Muhammad Ali</h5>
+                        <p class="m-0">Champion de Boxe</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"L'Islam m'a appris à être humble et à toujours penser à la puissance d'Allah au-dessus de tout."</p>
+                </div>
+            </div>
+            <!-- Témoignage 2 -->
+            <div class="testimonial-item">
+                <div class="d-flex mb-3">
+                    <div class="position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Shinzō_Abe_and_Malala_Yousafzai_%281%29_Cropped.jpg" class="img-fluid rounded-circle" alt="Malala Yousafzai">
+                        <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
+                            <i class="fa fa-quote-left text-dark"></i>
+                        </div>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h5 class="mb-0">Malala Yousafzai</h5>
+                        <p class="m-0">Activiste & Prix Nobel</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"L'Islam me donne une base forte pour défendre les droits des femmes et des enfants. Il nous enseigne l'éducation, la paix et l'égalité."</p>
+                </div>
+            </div>
+            <!-- Témoignage 3 -->
+            <div class="testimonial-item">
+                <div class="d-flex mb-3">
+                    <div class="position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Abdul_Sattar_Edhi.jpg/1200px-Abdul_Sattar_Edhi.jpg" class="img-fluid rounded-circle" alt="Abdul Sattar Edhi">
+                        <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
+                            <i class="fa fa-quote-left text-dark"></i>
+                        </div>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h5 class="mb-0">Abdul Sattar Edhi</h5>
+                        <p class="m-0">Humanitaire</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"L'Islam m'a appris à servir l'humanité sans discrimination. Mes actions sont dédiées à Allah."</p>
+                </div>
+            </div>
+            <!-- Témoignage 4 -->
+            <div class="testimonial-item">
+                <div class="d-flex mb-3">
+                    <div class="position-relative">
+                        <img src="https://i.f1g.fr/media/cms/768x1024_cropupscale/2024/11/15/3952bf75adc290989586adfbe8390d2b9469b0a3a9002ebf06da45998c606482.jpg" class="img-fluid rounded-circle" alt="Queen Rania">
+                        <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
+                            <i class="fa fa-quote-left text-dark"></i>
+                        </div>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h5 class="mb-0">Queen Rania</h5>
+                        <p class="m-0">Reine de Jordanie</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"L'Islam encourage le dialogue et la compassion. Je crois que notre foi est une lumière qui éclaire le chemin vers un monde plus harmonieux."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fin des Témoignages -->
+
+<!-- Début du Pied de Page -->
+<div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col-lg-7">
+                <h1 class="text-light mb-0">Abonnez-vous à notre newsletter</h1>
+                <p class="text-secondary">Recevez les dernières nouvelles et autres conseils</p>
+            </div>
+            <div class="col-lg-5">
+                <div class="position-relative mx-auto">
+                    <label>
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Votre email">
+                    </label>
+                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">S'abonner</button>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="border-top border-secondary"></div>
+            </div>
+        </div>
+        <div class="row g-4 footer-inner">
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item mt-5">
+                    <h4 class="text-light mb-4">LA<span class="text-primary">Mosquée</span></h4>
+                    <p class="mb-4 text-secondary">Nostrud exertation ullamco labor nisi aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                    <a href="" class="btn btn-primary py-2 px-4">Faire un don</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item mt-5">
+                    <h4 class="text-light mb-4">Notre Mosquée</h4>
+                    <div class="d-flex flex-column">
+                        <h6 class="text-secondary mb-0">Notre Adresse</h6>
+                        <div class="d-flex align-items-center border-bottom py-4">
+                            <span class="flex-shrink-0 btn-square bg-primary me-3 p-4"><i class="fa fa-map-marker-alt text-dark"></i></span>
+                            <a href="" class="text-body">123 Rue, New York, USA</a>
+                        </div>
+                        <h6 class="text-secondary mt-4 mb-0">Notre Téléphone</h6>
+                        <div class="d-flex align-items-center py-4">
+                            <span class="flex-shrink-0 btn-square bg-primary me-3 p-4"><i class="fa fa-phone-alt text-dark"></i></span>
+                            <a href="" class="text-body">+012 345 67890</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item mt-5">
+                    <h4 class="text-light mb-4">Liens Utiles</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Accueil</a>
+                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>À propos de nous</a>
+                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Nos Services</a>
+                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Nous contacter</a>
+                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Notre Blog</a>
+                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Nos Événements</a>
+                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Dons</a>
+                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Sermons</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item mt-5">
+                    <h4 class="text-light mb-4">Derniers Articles</h4>
+                    <div class="d-flex border-bottom border-secondary py-4">
+                        <img src="img/blog-mini-1.jpg" class="img-fluid flex-shrink-0" alt="">
+                        <div class="ps-3">
+                            <p class="mb-0 text-muted">01 Jan 2045</p>
+                            <a href="" class="text-body">Lorem ipsum dolor sit amet elit eros vel</a>
+                        </div>
+                    </div>
+                    <div class="d-flex py-4">
+                        <img src="img/blog-mini-2.jpg" class="img-fluid flex-shrink-0" alt="">
+                        <div class="ps-3">
+                            <p class="mb-0 text-muted">01 Jan 2045</p>
+                            <a href="" class="text-body">Lorem ipsum dolor sit amet elit eros vel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-4">
+        <div class="border-top border-secondary pb-4"></div>
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                &copy; <a class="border-bottom" href="#">Votre Nom de Site</a>, Tous droits réservés.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <!--/*** Ce modèle est gratuit tant que vous gardez le lien d'attribution/crédit de l'auteur ci-dessous. ***/-->
+                <!--/*** Si vous souhaitez utiliser le modèle sans le lien d'attribution/crédit de l'auteur ci-dessous, ***/-->
+                <!--/*** vous pouvez acheter la licence de suppression de crédit sur "https://htmlcodex.com/credit-removal". ***/-->
+                Conçu par <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin du Pied de Page -->
+
+<!-- Retour en haut -->
+<a href="#" class="btn btn-primary border-3 border-light back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+<!-- Bibliothèques JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script>
+    fetch("activities.json")
+        .then(response => response.json())
+        .then(activities => {
+            const container = document.getElementById("activities-container");
+            activities.forEach((activity, index) => {
+                container.innerHTML += `
+                <div class="row g-4 activity-item wow fadeIn" data-wow-delay="${0.1 * (index + 1)}s">
+                    <!-- Date et heure -->
+                    <div class="col-3 col-lg-2 pe-0">
+                        <div class="text-center border-bottom border-dark py-3 px-2">
+                            <h6>${activity.date}</h6>
+                            <p class="mb-0">${activity.time}</p>
+                        </div>
+                    </div>
+
+                    <!-- Détails principaux -->
+                    <div class="col-9 col-lg-6 border-start border-dark pb-5">
+                        <div class="ms-3">
+                            <h4 class="mb-3">${activity.title}</h4>
+                            <p class="mb-4">${activity.description}</p>
+                            <a href="${activity.link}" class="btn btn-success px-3" data-bs-toggle="modal" data-bs-target="#activityModal-${index}">${activity.button}</a>
+                        </div>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-12 col-lg-4">
+                        <div class="overflow-hidden mb-5">
+                            <img src="${activity.image}" class="img-fluid w-100" alt="${activity.title}">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modale pour les détails -->
+                <div class="modal fade" id="activityModal-${index}" tabindex="-1" aria-labelledby="activityModalLabel-${index}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header bg-primary text-white">
+                                <h5 class="modal-title" id="activityModalLabel-${index}">${activity.title}</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="${activity.image}" class="img-fluid rounded mb-4" alt="${activity.title}">
+                                <p>${activity.details}</p>
+                                <h5 class="text-dark mt-4">Étapes pour Réaliser :</h5>
+                                <ul class="list-group list-group-flush mb-4">
+                                    ${activity.steps
+                    .map(
+                        step =>
+                            `<li class="list-group-item"><i class="fa fa-check text-success me-2"></i>${step}</li>`
+                    )
+                    .join("")}
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+        })
+        .catch(error => console.error("Erreur lors du chargement des activités :", error));
+</script>
+<!-- JavaScript du modèle -->
+<script src="js/main.js"></script>
+</body>
+
+</html>
