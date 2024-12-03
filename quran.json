@@ -1,0 +1,16 @@
+[
+  {
+    "number": 1,
+    "name": "Al-Fatiha",
+    "translation": "La Fatiha (L'ouverture)",
+    "verses": 7,
+    "audio_link": "https://www.islamicfinder.org/audio/surah1.mp3"
+  },
+  {
+    "number": 2,
+    "name": "Al-Baqara",
+    "translation": "La Vache",
+    "verses": 286,
+    "audio_link": "https://www.islamicfinder.org/audio/surah2.mp3"
+  }
+]
